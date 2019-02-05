@@ -1,2 +1,2 @@
 # Groselha Style Core (GSC)
-Groselha Style Engine to build mobile and web Apps.
+Engine to to generate and manage cross-platform UI code.
