@@ -1,0 +1,8 @@
+{
+  "name": "gSystem",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/groselha-io/gSystem.git",
+  "author": "Henrique Aveiro <henrique.aveiro@globalhitss.com.br>",
+  "license": "MIT"
+}
