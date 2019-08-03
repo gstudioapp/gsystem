@@ -9,7 +9,7 @@ export default function styleResolver(props, styles, stateStyle) {
   console.info("Props: ", Object.keys(props), styles);
 
   stateStyle = stateStyle || {}
-  const componentStyles = getType(props, styles.types)
+  const componentStyles = getType(props, styles.types) || {}
   const componentStatesStyles = joinObjectsinArray(findObjectByProps(props, componentStyles.states))
   const componentModifiersStyles = joinObjectsinArray(findObjectByProps(props, componentStyles.modifiers))
 

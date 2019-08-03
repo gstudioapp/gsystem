@@ -6,17 +6,17 @@ import PropTypes from 'prop-types'
 
 export default class Button extends React.Component {
 
-    static propTypes = {
-        // baz: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-        /** Description of prop "type". */
-        type: PropTypes.string,
-        modifier: PropTypes.string,
-        state: PropTypes.string
-    }
+    // static propTypes = {
+    //     // baz: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    //     /** Description of prop "type". */
+    //     type: PropTypes.string,
+    //     modifier: PropTypes.string,
+    //     state: PropTypes.string
+    // }
     
-    static defaultProps = {
-        type : 'containedButton'
-    }
+    // static defaultProps = {
+    //     type : 'containedButton'
+    // }
 
     constructor(props) {
         super();

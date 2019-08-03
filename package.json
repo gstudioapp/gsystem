@@ -11,7 +11,7 @@
   "scripts": {
     "doc" : "npx styleguidist server",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; npx styleguidist build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
