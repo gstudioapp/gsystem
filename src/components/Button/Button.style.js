@@ -1,13 +1,20 @@
 import $ from '../../temp/tokens-temp.json';
+import getTokenValue from '../../scripts/token-resolver';
 
 export default {
     title : "Button",
     baseStyle : {
         fixed : {
-            color: $.colorNeutralLightest,
-            padding: $.spacingSquishSm,
-            backgroundColor : $.colorBrandPrimaryMedium,
-            border: `${$.borderWidthThin} ${$.borderStyleDefault} ${$.colorBrandPrimaryMedium}`,
+            ...getTokenValue("padding", "spacingSquishSm"),
+            ...getTokenValue("color", "colorBrandPrimaryMedium"),
+            ...getTokenValue("backgroundColor", "colorBrandPrimaryMedium"),
+            ...getTokenValue("color", "colorBrandPrimaryMedium"),
+            ...getTokenValue("opacity", "opacityLight"),
+            ...getTokenValue("border", [
+                "borderWidthThin",
+                "borderStyleDefault",
+                "colorBrandPrimaryMedium"
+            ]),
             cursor: `pointer`
         },
         custom : {
@@ -23,7 +30,7 @@ export default {
                     title : "enabled",
                     isDefault : true,
                     styles : {
-                        backgroundColor : $.colorBrandPrimaryMedium,
+                        // backgroundColor : $.colorBrandPrimaryMedium,
                         color : $.colorNeutralDarkest
                     }
                 },

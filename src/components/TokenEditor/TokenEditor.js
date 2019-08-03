@@ -1,9 +1,9 @@
 import React from 'react';
 import StyleResolver from '../../scripts/style-resolver'
-import $Style from './Test.style'
+import $Style from './TokenEditor.style'
 const Tokens = require('../../temp/tokens-temp.json').tokens
 
-export default class Test extends React.Component {
+export default class TokenEditor extends React.Component {
 
     constructor(props) {
         super();
@@ -16,12 +16,16 @@ export default class Test extends React.Component {
         this.objToArray = this.objToArray.bind(this)
     }
 
-    renderTokens() {
+    renderTokens(Component) {
+
+
+        // console.info(9999, Component)
+
+
         return Tokens.map((item, index) => {
-            console.log(123, item)
             return <div>
                 <h2>{item.title}</h2>
-                { Array.isArray(item.values) ? item.values.map((itemValue, valueIndex) => <div>
+                { Array.isArray(item.values) ? item.values.map((itemValue, valueIndex) => <div key={valueIndex}>
                     <h4>{itemValue.title}</h4>
                     <select>
                         {
@@ -60,7 +64,7 @@ export default class Test extends React.Component {
     render() {
         const style = StyleResolver(this.props, $Style)
         return <div style={style}>
-            { this.renderTokens() }
+            { this.renderTokens(this.props.component) }
         </div>
     }
 }

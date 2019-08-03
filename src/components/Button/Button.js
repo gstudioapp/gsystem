@@ -2,7 +2,7 @@ import React from 'react';
 import StyleResolver from '../../scripts/style-resolver'
 import $Style from './Button.style'
 
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
 export default class Button extends React.Component {
 
@@ -14,20 +14,25 @@ export default class Button extends React.Component {
     //     state: PropTypes.string
     // }
     
-    // static defaultProps = {
-    //     type : 'containedButton'
-    // }
+    static defaultProps = {
+        type : 'containedButton'
+    }
 
     constructor(props) {
         super();
 
         this.state = {
-            style : {}
+            style : $Style
         }
     }
     
     render() {
-        const style = StyleResolver(this.props, $Style)
+
+        console.info('===========================================')
+        console.info(this.state.style)
+        console.info('===========================================')
+
+        const style = StyleResolver(this.props, this.state.style)
         return <button style={style}>{this.props.children}</button>
     }
 }

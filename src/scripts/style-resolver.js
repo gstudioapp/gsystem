@@ -13,6 +13,9 @@ export default function styleResolver(props, styles, stateStyle) {
   const componentStatesStyles = joinObjectsinArray(findObjectByProps(props, componentStyles.states))
   const componentModifiersStyles = joinObjectsinArray(findObjectByProps(props, componentStyles.modifiers))
 
+  
+  // console.log(12321321321, styles.baseStyle.fixed)
+  
   console.log('| \n| Result:',
     '\n| componentStyles: ', componentStyles, 
     '\n| componentStatesStyles: ', componentStatesStyles, 

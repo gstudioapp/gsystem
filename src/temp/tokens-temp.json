@@ -2,12 +2,14 @@
     "tokens" : [
         {
             "title" : "Border",
+            "category" : "border",
             "props" : [
                 "border"
             ],
             "values" : [
                 {
                     "title" : "Border Style",
+                    "category" : "border-style",
                     "props" : [
                         "border-style"
                     ],
@@ -17,6 +19,7 @@
                 },
                 {
                     "title" : "Border Width",
+                    "category" : "border-width",
                     "props" : [
                         "border-width"
                     ],
@@ -29,6 +32,7 @@
                 },
                 {
                     "title" : "Border Radius",
+                    "category" : "border-radius",
                     "values" : {
                         "borderRadiusNone" : 0,
                         "borderRadiusXs" : "4px",
@@ -44,6 +48,7 @@
         },
         {
             "title" : "Opacity",
+            "category" : "opacity",
             "values" : {
                 "opacitySemiOpaque" : "0.8",
                 "opacityIntense" : "0.64",
@@ -53,6 +58,7 @@
             }
         },
         {
+            "category" : "shadow",
             "title" : "Shadow",
             "values" : {
                 "shadowOffsetXNone" : 0,
@@ -69,14 +75,16 @@
         },
         {
             "title" : "Spacing",
+            "category" : "spacing",
             "values" : [
                 {
                     "title" : "Inline",
+                    "category" : "inline",
                     "props" : [
                         "padding-right",
                         "padding-left",
                         "margin-left",
-                        "margin-left"
+                        "margin-right"
                     ],
                     "values" : {
                         "spacingInlineXxxs" : "4px",
@@ -90,6 +98,7 @@
                 },
                 {
                     "title" : "Inset",
+                    "category" : "inset",
                     "props" : [
                         "padding",
                         "margin"
@@ -105,6 +114,7 @@
                 },
                 {
                     "title" : "Squish",
+                    "category" : "squish",
                     "props" : [
                         "padding",
                         "margin"
@@ -118,6 +128,7 @@
                 },
                 {
                     "title" : "Stack",
+                    "category" : "stack",
                     "props" : [
                         "padding-top",
                         "padding-bottom",
@@ -140,9 +151,11 @@
         },
         {
             "title" : "Typography",
+            "category" : "typography",
             "values" : [
                 {
                     "title" : "Line Height",
+                    "category" : "line-height",
                     "props" : [
                         "line-height"
                     ],
@@ -158,6 +171,7 @@
                 },
                 {
                     "title" : "Font Size",
+                    "category" : "font-size",
                     "props" : [
                         "font-size"
                     ],
@@ -175,6 +189,7 @@
                 },
                 {
                     "title" : "Font Weight",
+                    "category" : "font-weight",
                     "props" : [
                         "font-weight"
                     ],
@@ -186,6 +201,7 @@
                 },
                 {
                     "title" : "Font Family",
+                    "category" : "font-family",
                     "props" : [
                         "font-family"
                     ],
@@ -196,6 +212,7 @@
                 },
                 {
                     "title" : "Style",
+                    "category" : "style",
                     "props" : [
                         "text-style"
                     ],
@@ -206,6 +223,7 @@
                 },
                 {
                     "title" : "Optical Adjust",
+                    "category" : "optical-adjust",
                     "props" : [
                         "line-height",
                         "transform/translate"
@@ -217,6 +235,7 @@
                 },
                 {
                     "title" : "Text Transform",
+                    "category" : "text-transform",
                     "props" : [
                         "text-transform"
                     ],
@@ -229,6 +248,7 @@
         },
         {
             "title" : "Color",
+            "category" : "color",
             "props" : [
                 "color",
                 "background-color",
@@ -238,6 +258,7 @@
             "values" : [
                 {
                     "title" : "Color Brand",
+                    "category" : "color-brand",
                     "values" : {
                         "colorBrandPrimaryDarkest" : "#67160D",
                         "colorBrandPrimaryDark" : "#A61D19",
@@ -248,6 +269,7 @@
                 },
                 {
                     "title" : "Color Global",
+                    "category" : "color-global",
                     "values" : {
                         "colorGlobalDark" : "#B16702",
                         "colorGlobalDarkest" : "#835003",
@@ -258,6 +280,7 @@
                 },
                 {
                     "title" : "Color Support",
+                    "category" : "color-support",
                     "values" : {
                         "colorSupportSuccessLight" : "#F08784",
                         "colorSupportSuccessDark" : "#A61D19",
@@ -274,6 +297,7 @@
                 },
                 {
                     "title" : "Color Neutral",
+                    "category" : "color-neutral",
                     "values" : {
                         "colorNeutralDarkest" : "#000000",
                         "colorNeutralDark" : "#5F646D",

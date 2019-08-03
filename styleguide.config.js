@@ -28,14 +28,14 @@ module.exports = {
     {
       name: 'Token Editor',
       content: 'docs/introduction.md',
-      components: 'src/components/Test/*.js',
-      ignore: 'src/components/Test/*.style.js'
+      components: 'src/components/TokenEditor/*.js',
+      ignore: 'src/components/TokenEditor/*.style.js'
     },
     {
       name: 'UI Components',
       content: 'docs/ui.md',
       components: 'src/components/**/*.js',
-      ignore: 'src/components/**/*.style.js',
+      ignore: [ 'src/components/TokenEditor/*.js', 'src/components/index.js', 'src/components/**/*.style.js' ],
       exampleMode: 'expand', // 'hide' | 'collapse' | 'expand'
       usageMode: 'expand' // 'hide' | 'collapse' | 'expand'
     }

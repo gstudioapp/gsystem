@@ -1,7 +1,7 @@
 React component example:
 
 ```js noeditor
-<Test></Test>
+<TokenEditor></TokenEditor>
 ```
 
 <!-- You can add a custom props to an example wrapper:
