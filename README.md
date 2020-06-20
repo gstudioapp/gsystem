@@ -2,4 +2,4 @@
 
 # GSystem
 
-### React UI component library
+React UI component library
