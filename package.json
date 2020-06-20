@@ -51,6 +51,8 @@
     "eslint-plugin-node": "11",
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
-    "git-commit-msg-linter": "^2.4.4"
+    "git-commit-msg-linter": "^2.4.4",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
   }
 }
