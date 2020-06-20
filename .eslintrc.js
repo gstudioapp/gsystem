@@ -1,9 +1,11 @@
 module.exports = {
-  extends: 'standard-with-typescript',
+  extends: ['prettier', 'standard-with-typescript'],
+  plugins: ['prettier'],
   parserOptions: {
     project: './tsconfig.json'
   },
   rules: {
+    'prettier/prettier': 'error',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
