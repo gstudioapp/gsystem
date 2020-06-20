@@ -2,8 +2,13 @@
   "name": "gsystem",
   "version": "0.1.0",
   "private": false,
+  "main": "build/index.js",
   "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
     "cross-env": "^7.0.2",
+    "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
@@ -11,9 +16,8 @@
   "scripts": {
     "build": "react-scripts build",
     "build-storybook": "build-storybook -s public",
-    "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
-    "start": "react-scripts start",
+    "start": "yarn storybook",
     "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
     "test:verbose": "react-scripts test --passWithNoTests",
@@ -49,14 +53,18 @@
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
     "@typescript-eslint/eslint-plugin": "3",
+    "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard-with-typescript": "^18.0.2",
     "eslint-plugin-import": "2",
     "eslint-plugin-node": "11",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "4",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "eslint-plugin-standard": "4",
     "git-commit-msg-linter": "^2.4.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "typescript": "~3.7.2"
   }
 }
