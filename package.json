@@ -21,7 +21,8 @@
     "eject": "react-scripts eject",
     "start": "react-scripts start",
     "storybook": "start-storybook -p 9009 -s public",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "test:staged": "react-scripts test"
   },
   "eslintConfig": {
     "extends": "react-app"
