@@ -43,6 +43,7 @@
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.2",
-    "@storybook/react": "^5.3.19"
+    "@storybook/react": "^5.3.19",
+    "git-commit-msg-linter": "^2.4.4"
   }
 }
