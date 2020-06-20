@@ -59,6 +59,7 @@
     "eslint-plugin-node": "11",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "4",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
     "eslint-plugin-standard": "4",
     "git-commit-msg-linter": "^2.4.4",
     "husky": "^4.2.5",
