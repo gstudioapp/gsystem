@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react'
 import { linkTo } from '@storybook/addon-links'
 import { Welcome } from '@storybook/react/demo'
 
