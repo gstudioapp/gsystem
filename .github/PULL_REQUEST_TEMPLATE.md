@@ -1,7 +1,7 @@
 ## What type of PR is this?
 
-- [ ] Feature
-- [ ] Bug Fix
+-   [ ] Feature
+-   [ ] Bug Fix
 
 ## Description
 
@@ -18,5 +18,5 @@
 
 ## Check before merge
 
-- Rebase with destination branch
-- No new warnings on console
+*   Rebase with destination branch
+*   No new warnings on console
