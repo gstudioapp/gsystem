@@ -11,12 +11,15 @@
     "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "rimraf": "^3.0.2"
   },
   "scripts": {
-    "build": "react-scripts build",
+    "build": "yarn build-storybook",
     "build-storybook": "build-storybook -s public",
+    "clean": "rimraf public",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "prebuild": "yarn clean",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
