@@ -1,4 +1,4 @@
-## What type of PR is this?
+## What type of PR is this
 
 -   [ ] Feature
 -   [ ] Bug Fix
@@ -7,7 +7,7 @@
 
 ## Screenshots (if it makes sense)
 
-## Visual guide for Reviewers:
+## Visual guide for Reviewers
 
 :bike: bikeshedding.  
 :star: great increment!  
