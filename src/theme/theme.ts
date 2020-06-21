@@ -5,7 +5,9 @@ const theme = {
   colors: {
     ...chakraTheme.colors,
     brand: {
-      primary: 'gray',
+      primary: {
+        500: 'gray'
+      },
       900: '#1a365d',
       800: '#153e75',
       700: '#2a69ac'

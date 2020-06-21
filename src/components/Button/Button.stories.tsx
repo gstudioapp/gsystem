@@ -9,11 +9,17 @@ export default {
 }
 
 export const Text = () => (
-  <Button onClick={action('clicked')}>Hello Button</Button>
+  <Button onClick={action('clicked')} variantColor="brand.primary">
+    Hello Button
+  </Button>
 )
 
 export const Emoji = () => (
-  <Button onClick={action('clicked')} variantColor="teal" variant="solid">
+  <Button
+    onClick={action('clicked')}
+    variantColor="brand.primary"
+    variant="solid"
+  >
     <span role="img" aria-label="so cool">
       😎
     </span>
