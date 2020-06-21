@@ -18,5 +18,5 @@
 
 ## Check before merge
 
-*   Rebase with destination branch
-*   No new warnings on console
+-   Rebase with destination branch
+-   No new warnings on console
