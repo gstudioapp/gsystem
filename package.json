@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "yarn build-storybook",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -c .storybook -o public",
     "clean": "rimraf public",
     "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
     "prebuild": "yarn clean",
