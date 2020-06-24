@@ -23,6 +23,7 @@
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
+    "test:watch": "yarn test -- --watch",
     "test:verbose": "react-scripts test --passWithNoTests",
     "test:staged": "react-scripts test -o --watchAll=false",
     "test:ci": "cross-env CI=true react-scripts test --all --coverage --color"
