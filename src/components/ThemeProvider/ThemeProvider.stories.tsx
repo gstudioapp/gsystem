@@ -1,4 +1,5 @@
 import { action } from '@storybook/addon-actions'
+import { object, withKnobs } from '@storybook/addon-knobs'
 import React from 'react'
 
 import Button from '../Button'
@@ -7,9 +8,10 @@ import defaultTheme from '../../theme'
 
 export default {
   title: 'ThemeProvider',
-  component: ThemeProvider
+  component: ThemeProvider,
+  decorators: [withKnobs]
 }
-
+const label = 'Theme'
 const theme = {
   ...defaultTheme,
   colors: {
@@ -23,7 +25,7 @@ const theme = {
 }
 
 export const SimpleTheme = () => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={object(label, theme)}>
     <h1>Sou apenas um teste</h1>
     <Button onClick={action('clicked')} variantColor="brand.primary">
       Hello Button
