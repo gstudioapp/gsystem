@@ -26,7 +26,9 @@ const theme = {
 
 export const SimpleTheme = () => (
   <ThemeProvider theme={object(label, theme)}>
-    <h1>Sou apenas um teste</h1>
+    <p>
+      Edite o valor <code>colors.brand.primary</code>
+    </p>
     <Button onClick={action('clicked')} variantColor="brand.primary">
       Hello Button
     </Button>
