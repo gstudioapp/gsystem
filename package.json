@@ -18,7 +18,7 @@
     "build": "yarn build-storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
     "clean": "rimraf public",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint --ext .ts,.tsx . --fix",
     "prebuild": "yarn clean",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9009 -s public",

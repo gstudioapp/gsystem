@@ -1,8 +1,9 @@
 module.exports = {
+  root: true,
   extends: ['prettier', 'standard-with-typescript'],
   plugins: ['prettier', 'sort-imports-es6-autofix'],
   parserOptions: {
-    project: './tsconfig.json'
+    project: './tsconfig.json',
   },
   rules: {
     'prettier/prettier': 'error',

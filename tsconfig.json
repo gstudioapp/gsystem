@@ -20,6 +20,9 @@
     "jsx": "react"
   },
   "include": [
-    "src"
+    "/**/*.ts",
+    "/**/*.tsx",
+    "src/**/*",
+    ".storybook/**/*"
   ]
 }
