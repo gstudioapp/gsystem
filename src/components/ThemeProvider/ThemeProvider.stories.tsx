@@ -11,15 +11,14 @@ export default {
   component: ThemeProvider,
   decorators: [withKnobs]
 }
+
 const label = 'Theme'
 const theme = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors,
     brand: {
-      primary: {
-        500: 'red'
-      }
+      primary: defaultTheme.colors.red
     }
   }
 }

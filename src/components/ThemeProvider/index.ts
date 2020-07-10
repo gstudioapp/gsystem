@@ -1,1 +1,6 @@
-export { default } from './ThemeProvider'
+export {
+  default,
+  useColorMode,
+  ColorModeProvider,
+  CSSReset
+} from './ThemeProvider'

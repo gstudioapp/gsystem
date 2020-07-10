@@ -1,10 +1,12 @@
 import {
+  CSSReset,
   ThemeProvider as ChakraThemeProvider,
-  ColorModeProvider
+  ColorModeProvider,
+  useColorMode
 } from '@chakra-ui/core'
 import React, { FC } from 'react'
 
-import customTheme from '../../theme/theme'
+import customTheme from '../../theme'
 
 export type ThemeProviderProps = {
   theme?: any
@@ -13,10 +15,7 @@ export type ThemeProviderProps = {
 const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme = customTheme
-}) => (
-  <ChakraThemeProvider theme={theme}>
-    <ColorModeProvider>{children}</ColorModeProvider>
-  </ChakraThemeProvider>
-)
+}) => <ChakraThemeProvider theme={theme}>{children}</ChakraThemeProvider>
 
 export default ThemeProvider
+export { useColorMode, ColorModeProvider, CSSReset }
