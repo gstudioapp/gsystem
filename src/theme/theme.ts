@@ -1,11 +1,17 @@
 import {theme, ITheme, ColorHues} from '@chakra-ui/core'
 
+import customSpace, { Density } from './space'
+
 type GSystemTheme = {
   colors: { brand: Record<string, ColorHues> }
+  target: Density
 } & ITheme
 
 const gsystemTheme: GSystemTheme = {
   ...theme,
+  ...customSpace,
+  target: Density.DEFAULT,
+  space: customSpace[Density.DEFAULT],
   colors: {
     ...theme.colors,
     brand: {
