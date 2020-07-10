@@ -1,10 +1,10 @@
 import { addDecorator, addParameters } from '@storybook/react'
-import { withInfo } from '@storybook/addon-info';
+import { withInfo } from '@storybook/addon-info'
 
-import StoryBookWrapper from './utils/StoryBookWrapper'
+import withStoryBookWrapper from './utils/withStoryBookWrapper'
 
 addDecorator(withInfo)
-addDecorator(StoryBookWrapper);
+addDecorator(withStoryBookWrapper)
 
 addParameters({
   info: {
@@ -15,5 +15,8 @@ addParameters({
         color: 'inherit'
       }
     }
+  },
+  darkMode: {
+    stylePreview: true
   }
 })
