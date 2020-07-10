@@ -5,10 +5,17 @@ const theme = {
   colors: {
     ...chakraTheme.colors,
     brand: {
-      primary: 'gray',
-      900: '#1a365d',
-      800: '#153e75',
-      700: '#2a69ac'
+      primary: {
+        100: '#e7d5ff',
+        200: '#ceacff',
+        300: '#b682ff',
+        400: '#9d59ff',
+        500: '#852FFF',
+        600: '#6a26cc',
+        700: '#501c99',
+        800: '#351366',
+        900: '#1b0933'
+      }
     }
   }
 }

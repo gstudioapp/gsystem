@@ -18,14 +18,15 @@
     "build": "yarn build-storybook",
     "build-storybook": "build-storybook -c .storybook -o public",
     "clean": "rimraf public",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint --ext .ts,.tsx . --fix",
     "prebuild": "yarn clean",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 9009 -s public",
     "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
+    "test:watch": "yarn test -- --watch",
     "test:verbose": "react-scripts test --passWithNoTests",
     "test:staged": "react-scripts test -o --watchAll=false",
-    "test:ci": "cross-env CI=true react-scripts test --all --coverage"
+    "test:ci": "cross-env CI=true react-scripts test --all --coverage --color"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -44,10 +45,13 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-info": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
     "@storybook/addon-links": "^5.3.19",
     "@storybook/addons": "^5.3.19",
     "@storybook/preset-create-react-app": "^3.1.2",
     "@storybook/react": "^5.3.19",
+    "@storybook/theming": "^5.3.19",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -55,6 +59,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@types/storybook__addon-info": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "3",
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-standard-with-typescript": "^18.0.2",
@@ -68,6 +73,14 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
+    "storybook-dark-mode": "^0.6.1",
     "typescript": "~3.7.2"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.stories.{js,jsx,ts,tsx}",
+      "!<rootDir>/node_modules/"
+    ]
   }
 }

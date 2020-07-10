@@ -1,6 +1,5 @@
-export { default as Button } from './Button'
 export {
-  default as ThemeProvider,
+  default,
   useColorMode,
   ColorModeProvider,
   CSSReset
