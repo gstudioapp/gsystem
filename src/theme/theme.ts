@@ -1,7 +1,12 @@
 import { theme as chakraTheme } from '@chakra-ui/core'
 
+import customSpace, { Density } from './space'
+
 const theme = {
   ...chakraTheme,
+  ...customSpace,
+  target: Density.DEFAULT,
+  space: customSpace[Density.DEFAULT],
   colors: {
     ...chakraTheme.colors,
     brand: {
