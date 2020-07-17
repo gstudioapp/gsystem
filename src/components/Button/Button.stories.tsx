@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
+import { text, withKnobs } from '@storybook/addon-knobs'
 import React from 'react'
 
+import { selectVariant, selectVariantColor } from '../../utils/knobs'
 import Button from './Button'
-
-import { text, withKnobs } from '@storybook/addon-knobs'
 
 export default {
   title: 'Button',
@@ -11,24 +11,16 @@ export default {
   decorators: [withKnobs]
 }
 
-const label = 'Color'
-const defaultValue = 'brand.primary'
-
 export const Text = () => (
-  <Button onClick={action('clicked')} variantColor={text(label, defaultValue)}>
-    Hello Button
+  <Button
+    onClick={action('clicked')}
+    variant={selectVariant('Variant')}
+    variantColor={selectVariantColor('Color')}
+  >
+    {text('Label', 'Button')}
   </Button>
 )
 
-export const Emoji = () => (
-  <Button
-    onClick={action('clicked')}
-    variantColor={text(label, defaultValue)}
-    variant="solid"
-  >
-    <span role="img" aria-label="so cool">
-      😎
-    </span>
-    Click me
-  </Button>
+export const Example = () => (
+  <Button variantColor="support.warning">Example</Button>
 )
