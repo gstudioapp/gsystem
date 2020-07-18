@@ -3,6 +3,13 @@ export enum Density {
   COMPACT = 'COMPACT'
 }
 
+export enum Sizes {
+  LARGE = 'lg',
+  MEDIUM = 'md',
+  SMALL = 'sm',
+  X_SMALL = 'xs'
+}
+
 const COMPACT = {
   px: '1px',
   0: '0',
