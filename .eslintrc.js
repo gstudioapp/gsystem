@@ -15,6 +15,7 @@ module.exports = {
         memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
       }
     ],
+    '@typescript-eslint/space-before-function-paren': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

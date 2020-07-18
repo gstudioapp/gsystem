@@ -3,7 +3,14 @@ export enum Density {
   COMPACT = 'COMPACT'
 }
 
-const COMPACT = {
+export enum Sizes {
+  LARGE = 'lg',
+  MEDIUM = 'md',
+  SMALL = 'sm',
+  X_SMALL = 'xs'
+}
+
+export const COMPACT: Record<string, string> = {
   px: '1px',
   0: '0',
   1: '0.1rem',
@@ -25,7 +32,7 @@ const COMPACT = {
   64: '16rem'
 }
 
-const DEFAULT = {
+export const DEFAULT: Record<string, string> = {
   px: '1px',
   0: '0',
   1: '0.2rem',
@@ -47,4 +54,6 @@ const DEFAULT = {
   64: '10rem'
 }
 
-export default { DEFAULT, COMPACT }
+export function getTargetSpace(target: Density): Record<string, string> {
+  return target === Density.DEFAULT ? DEFAULT : COMPACT
+}

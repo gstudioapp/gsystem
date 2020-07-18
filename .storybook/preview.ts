@@ -8,7 +8,6 @@ addDecorator(withStoryBookWrapper)
 
 addParameters({
   info: {
-    inline: true,
     styles: {
       infoBody: {
         backgroundColor: 'transparent',
