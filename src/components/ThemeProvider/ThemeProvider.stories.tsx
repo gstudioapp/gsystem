@@ -57,8 +57,8 @@ export const Card = () => (
         </Text>
         <Text mt={2}>$119/night</Text>
         <Flex mt={2} align="center">
-          {/* <Box as={MdStar} color="orange.400" /> */}
-          <Text ml={1} fontsize={'sm'}>
+          <Box color="orange.400">★</Box>
+          <Text ml={1}>
             <b>4.84</b> (190)
           </Text>
         </Flex>
