@@ -5,7 +5,7 @@ import { Colors } from '../../theme/colors/colors'
 import { Sizes } from '../../theme/space'
 import { useDensity } from '../ThemeProvider'
 
-export type ButtonProps = Exclude<Props, 'variantColor'> & {
+export type ButtonProps = Omit<Props, 'variantColor'> & {
   variantColor: Colors
 }
 

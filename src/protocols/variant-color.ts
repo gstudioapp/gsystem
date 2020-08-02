@@ -1,0 +1,31 @@
+export default {
+  type: 'variantColor',
+  values: [
+    'brand.primary',
+    'support.danger',
+    'support.info',
+    'support.success',
+    'support.warning',
+    'black',
+    'white',
+    'whiteAlpha',
+    'blackAlpha',
+    'gray',
+    'red',
+    'orange',
+    'yellow',
+    'green',
+    'teal',
+    'blue',
+    'cyan',
+    'purple',
+    'pink',
+    'linkedin',
+    'facebook',
+    'messenger',
+    'whatsapp',
+    'twitter',
+    'telegram'
+  ],
+  editable: true
+}
