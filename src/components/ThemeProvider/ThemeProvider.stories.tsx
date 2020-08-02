@@ -17,10 +17,10 @@ const label = 'Theme'
 const theme = {
   ...defaultTheme,
   colors: {
-    ...defaultTheme.colors,
-    brand: {
-      primary: defaultTheme.colors.red
-    }
+    ...defaultTheme.colors
+    // brand: {
+    //   primary: defaultTheme.colors.teal
+    // }
   }
 }
 

@@ -2,17 +2,18 @@ import { ThemeProvider } from '@chakra-ui/core'
 import { render } from '@testing-library/react'
 import React from 'react'
 
-import Button from './Button'
+import Button, { ButtonProps } from './Button'
 import theme from '../../theme'
 
-const initialProps = {
-  children: 'Click me'
+const initialProps: ButtonProps = {
+  children: 'Click me',
+  variantColor: 'red'
 }
 
 const setup = () =>
   render(
     <ThemeProvider theme={theme}>
-      <Button {...initialProps} />
+      <Button {...initialProps}>{initialProps.children}</Button>
     </ThemeProvider>
   )
 
