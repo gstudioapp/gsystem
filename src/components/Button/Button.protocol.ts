@@ -1,11 +1,12 @@
-import isLoading from '../../protocols/is-loading'
-import size from '../../protocols/size'
-import variant from '../../protocols/variant'
-import variantColor from '../../protocols/variant-color'
+import { size } from '../../protocols/size'
+import { variantColor } from '../../protocols/variant-color'
+import { variant } from '../../protocols/variant'
+import { ComponentProtocol } from '../../types/gstudio'
 
-const ButtonProtocol = {
+const ButtonProtocol: ComponentProtocol = {
   name: 'Button',
-  props: [isLoading, size, variant, variantColor]
+  themeProps: [variant],
+  editorProps: [size, variantColor],
 }
 
 export default ButtonProtocol

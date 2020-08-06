@@ -1,5 +1,11 @@
-export default {
-  type: 'variantColor',
+import { PropProtocol } from '../types/gstudio'
+
+export const variantColor: PropProtocol = {
+  name: 'variantColor',
+  type: 'STRING',
+  label: 'Color',
+  description: 'Color',
+  required: false,
   values: [
     'brand.primary',
     'support.danger',
@@ -26,6 +32,5 @@ export default {
     'whatsapp',
     'twitter',
     'telegram'
-  ],
-  editable: true
+  ]
 }
