@@ -1,10 +1,11 @@
-import { PropProtocol } from '../types/gstudio'
+import { PropStringProtocol, PropType } from '../types'
 
-export const variant: PropProtocol = {
+export type VariantProtocol = PropStringProtocol
+
+export const variant: VariantProtocol = {
   name: 'variant',
-  type: 'STRING',
-  label: 'Variant',
-  description: 'Variation of component',
+  type: PropType.STRING,
   required: true,
+  defaultValue: 'solid',
   values: ['outline', 'ghost', 'unstyled', 'link', 'solid']
 }
