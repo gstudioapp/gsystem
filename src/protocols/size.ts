@@ -1,10 +1,11 @@
-import { PropProtocol } from '../types/gStudio'
+import { PropStringProtocol, PropType } from '../types'
 
-export const size: PropProtocol = {
+export type SizeProtocol = PropStringProtocol
+
+export const size: SizeProtocol = {
   name: 'size',
-  type: 'STRING',
-  label: 'Button Size',
-  description: 'Size of the button',
-  values: ['xs', 'sm', 'md', 'lg'],
+  type: PropType.STRING,
   required: true,
+  defaultValue: 'sm',
+  values: ['xs', 'sm', 'md', 'lg']
 }
