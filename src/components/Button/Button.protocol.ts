@@ -13,7 +13,7 @@ type ButtonEditorPropsProtocol =
   | VariantColorProtocol
   | IsLoadingProtocol
 
-/* eslint-disable-next-line */
+/* eslint-disable-next-line prettier/prettier */
 const ButtonProtocol: ComponentProtocol<ButtonThemePropsProtocol, ButtonEditorPropsProtocol> = {
   name: 'Button',
   themeProps: [variant],
