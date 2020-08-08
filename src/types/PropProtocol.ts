@@ -5,7 +5,7 @@ export interface PropProtocol<T> {
   name: string
   required: boolean
   type: PropType
-  values?: T[]
+  values: T[]
 }
 
 export interface PropBooleanProtocol extends PropProtocol<boolean> {}
