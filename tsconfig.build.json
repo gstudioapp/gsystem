@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist/js",
+    "jsx": "react",
+    "lib": [
+      "es2017",
+      "dom"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "strictNullChecks": false,
+    "target": "es5"
+  },
+  "include": [
+    "./src/*",
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist",
+    "**/*.spec.tsx",
+    "**/*.stories.tsx",
+    ".storybook",
+    "scripts",
+    "setupTests.ts"
+  ]
+}
