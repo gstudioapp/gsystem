@@ -1,11 +1,16 @@
-import { theme as chakraTheme } from '@chakra-ui/core'
+import {theme, ITheme, ColorHues} from '@chakra-ui/core'
 
-const theme = {
-  ...chakraTheme,
+type GSystemTheme = {
+  colors: { brand: Record<string, ColorHues> }
+} & ITheme
+
+const gsystemTheme: GSystemTheme = {
+  ...theme,
   colors: {
-    ...chakraTheme.colors,
+    ...theme.colors,
     brand: {
       primary: {
+        50: '#f3eaff',
         100: '#e7d5ff',
         200: '#ceacff',
         300: '#b682ff',
@@ -20,4 +25,4 @@ const theme = {
   }
 }
 
-export default theme
+export default gsystemTheme
