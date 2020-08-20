@@ -16,7 +16,7 @@ export default {
     },
     {
       file: packageJson.module,
-      format: "esm",
+      format: "      format: \"esm\",\nesm",
       sourcemap: true
     }
   ],
