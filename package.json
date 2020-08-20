@@ -1,8 +1,40 @@
 {
   "name": "gsystem",
-  "version": "0.1.0",
-  "private": false,
+  "version": "0.0.2-beta",
+  "description": "React components",
+  "author": "gstudio team",
+  "license": "MIT",
+  "homepage": "https://github.com/gstudioapp/gsystem#readme",
   "main": "build/index.js",
+  "module": "build/index.es.js",
+  "typings": "build/index.d.ts",
+  "files": [
+    "build",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "yarn build-storybook",
+    "build-storybook": "build-storybook -c .storybook -o public",
+    "build:lib": "rollup -c && yarn build:types",
+    "clean:storybook": "rimraf public",
+    "clean:lib": "rimraf build",
+    "lint": "eslint --ext .ts,.tsx . --fix",
+    "prebuild-storybook": "yarn clean:storybook",
+    "prebuild:lib": "yarn clean:lib",
+    "start": "yarn storybook",
+    "storybook": "start-storybook -p 9009 -s public",
+    "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
+    "test:watch": "yarn test -- --watch",
+    "test:verbose": "react-scripts test --passWithNoTests",
+    "test:staged": "react-scripts test -o --watchAll=false",
+    "test:ci": "cross-env CI=true react-scripts test --all --coverage --color",
+    "build:types": "tsc -p tsconfig.build.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:gstudioapp/gsystem.git"
+  },
+  "private": false,
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.28",
@@ -13,20 +45,6 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "rimraf": "^3.0.2"
-  },
-  "scripts": {
-    "build": "yarn build-storybook",
-    "build-storybook": "build-storybook -c .storybook -o public",
-    "clean": "rimraf public",
-    "lint": "eslint --ext .ts,.tsx . --fix",
-    "prebuild": "yarn clean",
-    "start": "yarn storybook",
-    "storybook": "start-storybook -p 9009 -s public",
-    "test": "react-scripts test --passWithNoTests --silent --noStackTrace",
-    "test:watch": "yarn test -- --watch",
-    "test:verbose": "react-scripts test --passWithNoTests",
-    "test:staged": "react-scripts test -o --watchAll=false",
-    "test:ci": "cross-env CI=true react-scripts test --all --coverage --color"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,7 +61,12 @@
       "last 1 safari version"
     ]
   },
+  "engine": {
+    "node": "12.16.3"
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-info": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
@@ -72,7 +95,12 @@
     "git-commit-msg-linter": "^2.4.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
+    "rollup": "^2.26.4",
+    "rollup-plugin-peer-deps-external": "^2.2.3",
+    "rollup-plugin-postcss": "^3.1.5",
+    "rollup-plugin-typescript2": "^0.27.2",
     "storybook-dark-mode": "^0.6.1",
     "typescript": "~3.7.2"
   },
