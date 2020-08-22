@@ -14,15 +14,15 @@ export default {
 }
 
 const label = 'Theme'
-const theme = {
-  ...defaultTheme,
+const theme: any = {
+  ...defaultTheme(),
   colors: {
-    ...defaultTheme.colors
+    ...defaultTheme().colors
   }
 }
 
 export const SimpleTheme = () => (
-  <ThemeProvider theme={object(label, theme) as any}>
+  <ThemeProvider theme={object(label, theme)}>
     <p>
       Edite o valor <code>colors.brand.primary</code>
     </p>
