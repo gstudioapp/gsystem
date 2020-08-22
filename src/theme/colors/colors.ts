@@ -1,4 +1,4 @@
-import { VariantColor, theme as chakraTheme } from '@chakra-ui/core'
+import { ColorHues, VariantColor, theme as chakraTheme } from '@chakra-ui/core'
 
 import brand from './brand'
 import support from './support'
@@ -12,7 +12,11 @@ export type Colors =
   | 'support.info'
   | 'support.success'
   | 'support.warning'
-  | VariantColor
+
+export type ColorsType = {
+  brand: Brand
+  support: Support
+} & Record<VariantColor, ColorHues | string>
 
 export default {
   ...chakraTheme.colors,

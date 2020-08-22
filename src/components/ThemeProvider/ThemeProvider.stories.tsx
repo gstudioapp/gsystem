@@ -18,14 +18,11 @@ const theme = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors
-    // brand: {
-    //   primary: defaultTheme.colors.teal
-    // }
   }
 }
 
 export const SimpleTheme = () => (
-  <ThemeProvider theme={object(label, theme)}>
+  <ThemeProvider theme={object(label, theme) as any}>
     <p>
       Edite o valor <code>colors.brand.primary</code>
     </p>

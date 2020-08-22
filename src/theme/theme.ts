@@ -1,15 +1,16 @@
-import { ColorHues, ITheme, theme as chakraTheme } from '@chakra-ui/core'
+import { ITheme, theme as chakraTheme } from '@chakra-ui/core'
 
+import { ColorsType } from './colors/colors'
 import { Density, getTargetSpace } from './space'
 import colors from './colors'
 
-type GSystemTheme = {
-  colors: { brand: Record<string, ColorHues> }
+export type GSystemThemeType = {
+  colors: ColorsType
   space: Record<string, string>
-  target: Density
-} & Omit<ITheme, 'space'>
+  target?: Density
+} & Omit<ITheme, 'colors' | 'space'>
 
-const theme: GSystemTheme = {
+const theme: GSystemThemeType = {
   ...chakraTheme,
   colors,
   space: getTargetSpace(Density.DEFAULT),

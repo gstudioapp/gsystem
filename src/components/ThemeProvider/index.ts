@@ -6,3 +6,5 @@ export {
   ColorModeProvider,
   CSSReset
 } from './ThemeProvider'
+
+export * from './ThemeProvider'

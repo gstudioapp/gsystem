@@ -2,17 +2,17 @@ import {
   CSSReset,
   ThemeProvider as ChakraThemeProvider,
   ColorModeProvider,
-  ITheme,
   useTheme as useChakraTheme,
   useColorMode
 } from '@chakra-ui/core'
 import React, { FC } from 'react'
 
-import { Density, Sizes } from '../../theme/space'
+import { GSystemThemeType } from '../../theme/theme'
+import { Sizes } from '../../theme/space'
 import customTheme from '../../theme'
 import useButtonStyles from '../Button/Button.styles'
 
-type GSystemTheme = { target: Density } & ITheme
+export type GSystemTheme = GSystemThemeType
 
 export type ThemeProviderProps = {
   theme?: GSystemTheme
@@ -21,9 +21,9 @@ export type ThemeProviderProps = {
 const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme = customTheme
-}) => <ChakraThemeProvider theme={theme}>{children}</ChakraThemeProvider>
+}) => <ChakraThemeProvider theme={theme as any}>{children}</ChakraThemeProvider>
 
-const useTheme = () => useChakraTheme() as GSystemTheme
+const useTheme = () => useChakraTheme() as any
 
 /* WIP: I'm testing a density hooks to manager theme and components */
 const useDensity = (component: 'button', size: Sizes = Sizes.MEDIUM) => {
