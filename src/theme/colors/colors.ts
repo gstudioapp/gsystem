@@ -12,6 +12,7 @@ export type Colors =
   | 'support.info'
   | 'support.success'
   | 'support.warning'
+  | VariantColor
 
 export type ColorsType = {
   brand: Brand

@@ -7,8 +7,8 @@ import {
 } from '@chakra-ui/core'
 import React, { FC } from 'react'
 
+import { Density, Sizes } from '../../theme/space'
 import { GSystemThemeType } from '../../theme/theme'
-import { Sizes } from '../../theme/space'
 import customTheme from '../../theme'
 import useButtonStyles from '../Button/Button.styles'
 
@@ -20,7 +20,7 @@ export type ThemeProviderProps = {
 
 const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
-  theme = customTheme
+  theme = customTheme(Density.DEFAULT)
 }) => <ChakraThemeProvider theme={theme as any}>{children}</ChakraThemeProvider>
 
 const useTheme = () => useChakraTheme() as any

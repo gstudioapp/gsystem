@@ -1,8 +1,8 @@
-import { ThemeProvider } from '@chakra-ui/core'
 import { render } from '@testing-library/react'
 import React from 'react'
 
 import Button, { ButtonProps } from './Button'
+import ThemeProvider from '../ThemeProvider'
 import theme from '../../theme'
 
 const initialProps: ButtonProps = {
@@ -12,7 +12,7 @@ const initialProps: ButtonProps = {
 
 const setup = () =>
   render(
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme()}>
       <Button {...initialProps}>{initialProps.children}</Button>
     </ThemeProvider>
   )

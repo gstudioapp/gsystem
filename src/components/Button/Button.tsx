@@ -1,4 +1,8 @@
-import { Button as ChakraButton, ButtonProps as Props } from '@chakra-ui/core'
+import {
+  Button as ChakraButton,
+  ButtonProps as Props,
+  VariantColor
+} from '@chakra-ui/core'
 import React, { FC } from 'react'
 
 import { Colors } from '../../theme/colors/colors'

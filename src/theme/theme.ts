@@ -10,11 +10,11 @@ export type GSystemThemeType = {
   target?: Density
 } & Omit<ITheme, 'colors' | 'space'>
 
-const theme: GSystemThemeType = {
+const theme = (target: Density = Density.DEFAULT): GSystemThemeType => ({
   ...chakraTheme,
   colors,
-  space: getTargetSpace(Density.DEFAULT),
-  target: Density.DEFAULT
-}
+  target,
+  space: getTargetSpace(target)
+})
 
 export default theme
