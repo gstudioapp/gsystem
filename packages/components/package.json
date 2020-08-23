@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/components",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": "React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -28,8 +28,8 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@gsystem/protocols": "0.0.2",
-    "@gsystem/tokens": "0.0.2",
+    "@gsystem/protocols": "0.0.1",
+    "@gsystem/tokens": "0.0.1",
     "emotion-theming": "^10.0.27"
   },
   "devDependencies": {
@@ -60,6 +60,6 @@
     "compile": "cross-env NODE_ENV=production rollup -c",
     "compile:dev": "rollup -c -w",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook:build": "build-storybook"
   }
 }

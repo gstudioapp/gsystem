@@ -54,6 +54,7 @@
     "emotion-theming": "^10.0.27"
   },
   "scripts": {
+    "build": "lerna run build",
     "lint": "lerna run lint --parallel",
     "lint:fix": "lerna run lint:fix --parallel --",
     "test": "lerna run test --parallel -- --runInBand --logHeapUsage",

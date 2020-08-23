@@ -2,7 +2,7 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.0.2",
+  "version": "independent",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
@@ -17,11 +17,14 @@
       ],
       "exact": true,
       "noCommitHooks": true,
-      "includeMergedTags": true
+      "includeMergedTags": true,
+      "conventionalCommits": true
     },
     "publish": {
-      "conventionalCommits": true,
-      "yes": true
+      "ignoreChanges": [
+        "*.md",
+        "*.spec.ts"
+      ]
     }
   }
 }
