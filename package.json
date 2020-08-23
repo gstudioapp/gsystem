@@ -1,5 +1,5 @@
 {
-  "name": "gsystem",
+  "name": "root",
   "private": true,
   "workspaces": {
     "packages": [

@@ -14,8 +14,11 @@
       ],
       "exact": true,
       "noCommitHooks": true,
-      "includeMergedTags": true,
-      "conventionalCommits": true
+      "includeMergedTags": true
+    },
+    "publish": {
+      "conventionalCommits": true,
+      "yes": true
     }
   }
 }
