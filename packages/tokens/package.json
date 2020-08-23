@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/tokens",
   "version": "0.0.1",
-  "main": "src/index.ts",
+  "main": "src/index.js",
   "license": "MIT"
 }
