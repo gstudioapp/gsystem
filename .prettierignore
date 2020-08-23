@@ -1,8 +1,0 @@
-node_modules
-build
-dist
-public
-storybook-static
-src/react-app-env.d.ts
-!.storybook
-*.js

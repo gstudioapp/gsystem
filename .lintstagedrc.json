@@ -1,6 +1,0 @@
-{
-  "*.tsx?": [
-    "yarn lint",
-    "yarn test:staged"
-  ]
-}

@@ -1,0 +1,21 @@
+{
+  "packages": ["packages/*"],
+  "version": "0.0.1",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "allowBranch": [
+        "master"
+      ],
+      "message": "chore(release): publish version %s - [SKIP CI]",
+      "ignoreChanges": [
+        "yarn.lock"
+      ],
+      "exact": true,
+      "noCommitHooks": true,
+      "includeMergedTags": true,
+      "conventionalCommits": true
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "name": "@gsystem/components",
+  "version": "0.0.1",
+  "description": "React components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:gstudioapp/gsystem.git",
+    "directory": "packages/components"
+  },
+  "homepage": "https://github.com/gstudioapp/gsystem#readme",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "index.d.ts"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn test && yarn compile"
+    }
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.8.0",
+    "@emotion/core": "^10.0.35",
+    "@emotion/styled": "^10.0.27",
+    "@gsystem/protocols": "^0.0.1",
+    "@gsystem/tokens": "^0.0.1",
+    "emotion-theming": "^10.0.27"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@rollup/plugin-commonjs": "^15.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@storybook/addon-actions": "^6.0.16",
+    "@storybook/addon-essentials": "^6.0.16",
+    "@storybook/addon-links": "^6.0.16",
+    "@storybook/react": "^6.0.16",
+    "@types/testing-library__jest-dom": "^5.9.2",
+    "@types/testing-library__react": "^10.2.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "react-docgen-typescript-plugin": "^0.6.0",
+    "react-is": "^16.13.1",
+    "rollup": "^2.26.5",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "ts-loader": "^8.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc --project tsconfig.app.json --noEmit",
+    "typecheck:dev": "yarn typecheck -- --watch",
+    "lint": "eslint src --ext=js,jsx,ts,tsx",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest",
+    "test:watch": "jest --watch --no-coverage",
+    "compile": "cross-env NODE_ENV=production rollup -c",
+    "compile:dev": "rollup -c -w",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  }
+}
