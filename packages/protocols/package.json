@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/protocols",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Protocols of gsystem/components",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
