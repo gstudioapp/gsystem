@@ -22,14 +22,8 @@ export default [
   {
     input: 'src/index.ts',
     plugins,
-    external: [
-      '@chakra-ui/core',
-      '@emotion/core',
-      '@emotion/styled',
-      'emotion-theming',
-      'react',
-    ],
-    output: formats.map(format => ({
+    external: ['@chakra-ui/core', '@emotion/core', '@emotion/styled', 'emotion-theming', 'react'],
+    output: formats.map((format) => ({
       file: `dist/index.${format}.js`,
       format,
       name: 'gsystem/components',

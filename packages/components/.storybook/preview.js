@@ -1,22 +1,22 @@
-import { addDecorator, addParameters } from '@storybook/react'
+import { addDecorator, addParameters } from '@storybook/react';
 
-import { ThemeProviderDecorator } from './decorators'
+import { ThemeProviderDecorator } from './decorators';
 
-addDecorator(ThemeProviderDecorator)
+addDecorator(ThemeProviderDecorator);
 
 addParameters({
   info: {
     styles: {
       infoBody: {
         backgroundColor: 'transparent',
-        color: 'inherit'
-      }
-    }
+        color: 'inherit',
+      },
+    },
   },
   darkMode: {
-    stylePreview: true
-  }
-})
+    stylePreview: true,
+  },
+});
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
