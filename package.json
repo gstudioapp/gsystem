@@ -1,19 +1,6 @@
 {
   "name": "gsystem",
   "private": true,
-  "scripts": {
-    "lint": "lerna run lint --parallel",
-    "lint:fix": "lerna run lint:fix --parallel --",
-    "test": "lerna run test --parallel -- --runInBand --logHeapUsage",
-    "comp:compile": "yarn workspace @gsystem/components run compile",
-    "comp:compile:watch": "yarn workspace @gsystem/components run compile:dev",
-    "comp:test": "yarn workspace @gsystem/components run test",
-    "comp:test:watch": "yarn workspace @gsystem/components run test:watch",
-    "storybook": "yarn workspace @gsystem/components run storybook",
-    "storybook:build": "yarn workspace @gsystem/components run storybook:build",
-    "release": "lerna publish --yes",
-    "clean:packages": "lerna clean -y && rimraf node_modules && echo '' > yarn.lock && yarn install"
-  },
   "workspaces": {
     "packages": [
       "packages/**"
@@ -65,5 +52,19 @@
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
     "emotion-theming": "^10.0.27"
+  },
+  "scripts": {
+    "lint": "lerna run lint --parallel",
+    "lint:fix": "lerna run lint:fix --parallel --",
+    "test": "lerna run test --parallel -- --runInBand --logHeapUsage",
+    "test:verbose": "lerna run test --parallel -- --runInBand --coverage",
+    "comp:compile": "yarn workspace @gsystem/components run compile",
+    "comp:compile:watch": "yarn workspace @gsystem/components run compile:dev",
+    "comp:test": "yarn workspace @gsystem/components run test",
+    "comp:test:watch": "yarn workspace @gsystem/components run test:watch",
+    "storybook": "yarn workspace @gsystem/components run storybook",
+    "storybook:build": "yarn workspace @gsystem/components run storybook:build",
+    "release": "lerna publish --yes",
+    "clean:packages": "lerna clean -y && rimraf node_modules && echo '' > yarn.lock && yarn install"
   }
 }
