@@ -1,5 +1,7 @@
-import React from 'react';
-import { ThemeProvider, CSSReset } from '@chakra-ui/core';
+import * as React from 'react';
+import { CSSReset } from '@chakra-ui/core';
+
+import { ThemeProvider } from '../../src/ThemeProvider';
 
 export default story => (
   <ThemeProvider>
