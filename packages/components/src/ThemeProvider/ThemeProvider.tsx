@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import { theme as gTheme, GSystemThemeType } from '../theme';
 
 /**
- * Primary UI component for user interaction
+ * ThemeProvider component for user
  */
 export const ThemeProvider: FC<{ theme?: GSystemThemeType }> = ({ children, theme = gTheme }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
