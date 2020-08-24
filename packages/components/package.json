@@ -21,9 +21,6 @@
       "pre-commit": "yarn test && yarn compile"
     }
   },
-  "peerDependencies": {
-    "react": "^16.13.1"
-  },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
