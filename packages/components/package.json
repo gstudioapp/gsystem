@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/components",
-  "version": "0.0.2-beta.139+9df8589",
+  "version": "0.0.2-beta.140+f2f578e",
   "description": "React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -21,11 +21,14 @@
       "pre-commit": "yarn test && yarn compile"
     }
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@gsystem/protocols": "0.0.2-beta.139+9df8589",
+    "@gsystem/protocols": "0.0.2-beta.140+f2f578e",
     "@gsystem/tokens": "0.0.1",
     "emotion-theming": "^10.0.27"
   },
@@ -64,5 +67,5 @@
   "peerDependencies": {
     "react": "^16.13.1"
   },
-  "gitHead": "9df8589d3b4e090cfca186c5b3e8628827861c88"
+  "gitHead": "f2f578ed29b208be4e6552925f26b4ded8783704"
 }

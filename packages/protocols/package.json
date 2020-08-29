@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/protocols",
-  "version": "0.0.2-beta.139+9df8589",
+  "version": "0.0.2-beta.140+f2f578e",
   "description": "Protocols of gsystem/components",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -19,8 +19,11 @@
   },
   "lint-staged": {
     "*.ts": [
-      "eslint --fix --ext .js,.ts --quiet"
+      "yarn fix -- --quiet"
     ]
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.app.json",
@@ -34,5 +37,5 @@
     "eslint-plugin-import": "^2.22.0",
     "prettier": "^2.1.1"
   },
-  "gitHead": "9df8589d3b4e090cfca186c5b3e8628827861c88"
+  "gitHead": "f2f578ed29b208be4e6552925f26b4ded8783704"
 }
