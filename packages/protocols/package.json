@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/protocols",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.139+9df8589",
   "description": "Protocols of gsystem/components",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -33,5 +33,6 @@
     "@typescript-eslint/parser": "^3.9.1",
     "eslint-plugin-import": "^2.22.0",
     "prettier": "^2.1.1"
-  }
+  },
+  "gitHead": "9df8589d3b4e090cfca186c5b3e8628827861c88"
 }
