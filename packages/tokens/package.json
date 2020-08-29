@@ -1,7 +1,9 @@
 {
   "name": "@gsystem/tokens",
-  "version": "0.0.5",
+  "version": "0.0.2",
   "main": "src/index.js",
   "license": "MIT",
-  "gitHead": "2603e02a3ffad3238b4782f83a2fc19b9382c2bd"
+  "publishConfig": {
+    "access": "public"
+  }
 }

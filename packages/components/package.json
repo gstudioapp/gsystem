@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/components",
-  "version": "0.0.2-beta.145",
+  "version": "0.0.2-beta.146",
   "description": "React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -28,7 +28,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@gsystem/protocols": "0.0.2-beta.145",
+    "@gsystem/protocols": "0.0.2-beta.146",
     "emotion-theming": "^10.0.27"
   },
   "devDependencies": {
@@ -66,5 +66,5 @@
   "peerDependencies": {
     "react": "^16.13.1"
   },
-  "gitHead": "2603e02a3ffad3238b4782f83a2fc19b9382c2bd"
+  "gitHead": "899c1f8d767b4c68a9ae55b8df902eaab3b24ea7"
 }
