@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/components",
-  "version": "0.0.2-beta.146",
+  "version": "0.0.2-beta.147",
   "description": "React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -28,7 +28,7 @@
     "@chakra-ui/core": "^0.8.0",
     "@emotion/core": "^10.0.35",
     "@emotion/styled": "^10.0.27",
-    "@gsystem/protocols": "0.0.2-beta.146",
+    "@gsystem/protocols": "0.0.2-beta.147",
     "emotion-theming": "^10.0.27"
   },
   "devDependencies": {
