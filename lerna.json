@@ -8,8 +8,7 @@
   "command": {
     "version": {
       "allowBranch": [
-        "master",
-        "feature/monorepo"
+        "master"
       ],
       "message": "chore(release): publish version %s - [SKIP CI]",
       "ignoreChanges": [
