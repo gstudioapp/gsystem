@@ -11,13 +11,12 @@
     "target": "ES2019",
     "lib": ["dom", "ES2019"],
     "sourceMap": true,
-    "outDir": "./dist",
-    "baseUrl": "./src",
+    "outDir": "dist",
+    "baseUrl": "src",
     "incremental": true,
     "esModuleInterop": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "declarationDir": "dist"
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
