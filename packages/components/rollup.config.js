@@ -1,6 +1,7 @@
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import typescript from 'rollup-plugin-typescript2';
+import babel from 'rollup-plugin-babel';
 
 const formats = ['cjs', 'esm'];
 
@@ -15,6 +16,9 @@ const plugins = [
         declaration: true,
       },
     },
+  }),
+  babel({
+    exclude: 'node_modules/**',
   }),
 ];
 
