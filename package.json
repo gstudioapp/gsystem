@@ -58,7 +58,7 @@
   "scripts": {
     "build": "lerna run build",
     "lint": "lerna run lint --parallel",
-    "lint:fix": "lerna run lint:fix --parallel",
+    "lint:fix": "lerna run lint:fix",
     "test": "lerna run test --parallel -- --runInBand --logHeapUsage",
     "test:verbose": "lerna run test --parallel -- --runInBand --coverage",
     "comp:compile": "yarn workspace @gsystem/components run compile",

@@ -8,7 +8,7 @@ export type ButtonProps = { variantColor?: Colors } & Omit<ChakraButtonProps, 'v
 /**
  * Button component for user interaction
  */
-export const Button: FC<ChakraButtonProps> = ({ children, ...props }) => {
+export const Button: FC<ButtonProps> = ({ children, ...props }) => {
   return <ChakraButton {...props}>{children}</ChakraButton>;
 };
 
