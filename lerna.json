@@ -1,0 +1,29 @@
+{
+  "packages": [
+    "packages/*"
+  ],
+  "version": "independent",
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "command": {
+    "version": {
+      "allowBranch": [
+        "master"
+      ],
+      "message": "chore(release): publish version %s - [SKIP CI]",
+      "ignoreChanges": [
+        "yarn.lock"
+      ],
+      "exact": true,
+      "noCommitHooks": true,
+      "includeMergedTags": true,
+      "conventionalCommits": true
+    },
+    "publish": {
+      "ignoreChanges": [
+        "*.md",
+        "*.spec.ts"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+.vscode/
+node_modules/
+dist/
+*.log
+coverage/
+storybook-static/
+
+.idea/

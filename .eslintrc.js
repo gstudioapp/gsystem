@@ -1,25 +1,36 @@
 module.exports = {
-  root: true,
-  extends: ['prettier', 'standard-with-typescript'],
-  plugins: ['prettier', 'sort-imports-es6-autofix'],
-  parserOptions: {
-    project: './tsconfig.json',
+  env: {
+    es6: true,
+    browser: true,
+    node: true,
   },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 2018,
+    sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:jsx-a11y/recommended',
+    'plugin:jest/recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
   rules: {
-    'prettier/prettier': 'error',
-    'sort-imports-es6-autofix/sort-imports-es6': [
-      2,
-      {
-        ignoreCase: false,
-        ignoreMemberSort: false,
-        memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single']
-      }
-    ],
-    '@typescript-eslint/no-unused-vars': 'off',
-    '@typescript-eslint/consistent-type-definitions': 'off',
-    '@typescript-eslint/explicit-function-return-type': 'off',
-    '@typescript-eslint/strict-boolean-expressions': 'off',
-    '@typescript-eslint/triple-slash-reference': 'off',
-    '@typescript-eslint/no-floating-promises': 'off'
-  }
-}
+    'react/prop-types': 0,
+    'jsx-a11y/aria-role': 1,
+    '@typescript-eslint/ban-ts-ignore': 0,
+  },
+};

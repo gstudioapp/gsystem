@@ -1,6 +1,0 @@
-build/**/demos
-build/**/examples
-build/**/__snapshots__
-build/**/*.test.js
-build/**/*.spec.ts
-build/**/*.map

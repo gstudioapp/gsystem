@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# uncompiled sources
+src/
+
+# Development/Build scripts
+scripts/
+
+# Docker files
+Dockerfile*
+
+# TypeScript config files
+tslint.json
+tsconfig.json
+
+# Package Lock
+package-lock.json
+
+# IDE/editor specific files
+.vscode/
+.idea/
+
+# Makefile
+Makefile
