@@ -74,14 +74,14 @@ jobs:
           draft: false
           prerelease: false
       - name: Authenticate with Registry
-          run: |
-            yarn logout
-            echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
-            echo "registry=http://registry.npmjs.org/" >> .npmrc
-            echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-            npm whoami
-          env:
-            NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          yarn logout
+          echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Publish
         if: steps.tag_check.outputs.exists_tag == 'false'
         run: |
