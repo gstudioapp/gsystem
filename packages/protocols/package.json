@@ -14,12 +14,13 @@
   "license": "MIT",
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint:fix && yarn typecheck"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
     "*.ts": [
-      "yarn fix -- --quiet"
+      "yarn lint:fix",
+      "yarn typecheck"
     ]
   },
   "publishConfig": {
@@ -27,7 +28,7 @@
   },
   "scripts": {
     "build": "rm -rf ./dist && tsc -p ./tsconfig.app.json",
-    "lint": "eslint src --ext=js,ts",
+    "lint": "eslint ./src --ext=js,ts",
     "lint:fix": "yarn lint -- --fix",
     "typecheck": "tsc --project ./tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck -- --watch"

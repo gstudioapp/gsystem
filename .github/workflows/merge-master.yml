@@ -1,0 +1,49 @@
+name: Merge on master
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/checkout@master
+        with:
+          ref: master
+      - name: Use Node.js ${{ matrix.node-version }}
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install environment
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        run: yarn install
+      - name: Login to github
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        env:
+          CI: true
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git checkout master
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+      - name: Deploy
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        env:
+          CI: true
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=NPM_TOKEN
+          yarn release
