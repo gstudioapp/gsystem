@@ -33,21 +33,21 @@ jobs:
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
         run: |
           git checkout master
           git config --global user.name 'thiagokpelo'
           git config --global user.email 'thiagokpelo@gmail.com'
-          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
+          git remote set-url origin https://x-access-token:${GITHUB_AUTH_TOKEN}@github.com/$GITHUB_REPOSITORY
       - name: Authenticate with Registry
         run: |
           yarn logout
           echo "@gsystem:registry=http://registry.npmjs.org/" > .npmrc
           echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" >> .npmrc
           npm whoami
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
