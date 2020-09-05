@@ -4,3 +4,11 @@
 # @gsystem/components
 
 React UI component library
+
+```bash
+// with npm
+npm install @gsystem/components
+
+// with yarn
+yarn add @gsystem/components
+```

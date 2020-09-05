@@ -4,3 +4,11 @@
 # @gsystem/protocols
 
 Contract of gsystem components
+
+```bash
+// with npm
+npm install @gsystem/protocols
+
+// with yarn
+yarn add @gsystem/protocols
+```
