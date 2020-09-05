@@ -39,17 +39,8 @@ jobs:
         env:
           PREVIOUS_TAG: $(git describe --exact-match --tags $(git log -n1 --pretty='%h'))
 
-      - name: Get next minor version`
+      - name: Get next minor version
         id: semvers
         uses: WyriHaximus/github-action-next-semvers@master
         with:
           version: ${{ env.PREVIOUS_TAG }}
-
-      - name: Set Current Version
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        shell: bash -ex {0}
-        run: |
-          CURRENT_VERSION=${CURRENT_VERSION}
-          echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
-        env:
-          CURRENT_VERSION: ${{ steps.semvers.outputs.patch }}
