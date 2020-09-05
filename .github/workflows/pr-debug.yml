@@ -1,0 +1,55 @@
+name: Debug
+
+on: ["push"]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Login to github
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        env:
+          CI: true
+          GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+          GITHUB_EMAIL: ${{ secrets.GSYSTEM_EMAIL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_USER: ${{ secrets.GSYSTEM_USER }}
+        run: |
+          git checkout master
+          git config --global user.name $GITHUB_USER
+          git config --global user.email $GITHUB_EMAIL
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
+
+      - name: Get Previous tag
+        id: previoustag
+        run: echo "PREVOUS_TAG:${PREVIOUS_TAG}"
+        env:
+          PREVIOUS_TAG: $(git ls-remote --tags | grep -o 'v.*' | sort -r | head -1)
+
+      - name: Get next minor version`
+        id: semvers
+        uses: WyriHaximus/github-action-next-semvers@master
+        with:
+          version: ${{ env.PREVIOUS_TAG }}
+
+      - name: Set Current Version
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        shell: bash -ex {0}
+        run: |
+          CURRENT_VERSION=${CURRENT_VERSION}
+          echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
+        env:
+          CURRENT_VERSION: ${{ steps.semvers.outputs.patch }}
