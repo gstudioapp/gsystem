@@ -6,8 +6,8 @@ import {
   size,
   variant,
   variantColor,
+  ComponentProtocol,
 } from '@gsystem/protocols';
-import { ComponentProtocol } from '@gsystem/protocols/dist/types';
 
 type ButtonThemePropsProtocol = VariantColorProtocol;
 type ButtonEditorPropsProtocol = SizeProtocol | VariantColorProtocol | IsLoadingProtocol;

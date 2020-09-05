@@ -18,8 +18,13 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn compile"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "yarn lint:fix"
+    ]
   },
   "publishConfig": {
     "access": "public"
@@ -54,7 +59,7 @@
   "scripts": {
     "typecheck": "tsc --project tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck -- --watch",
-    "lint": "eslint src --ext=js,jsx,ts,tsx",
+    "lint": "eslint ./src --ext=js,jsx,ts,tsx",
     "lint:fix": "yarn lint -- --fix",
     "test": "jest",
     "test:watch": "jest --watch --no-coverage",

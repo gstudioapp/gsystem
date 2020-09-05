@@ -9,14 +9,8 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged",
       "pre-push": "yarn test"
     }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "yarn lint:fix"
-    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
@@ -58,7 +52,7 @@
   "scripts": {
     "build": "lerna run build",
     "lint": "lerna run lint --parallel",
-    "lint:fix": "lerna run lint:fix",
+    "lint:fix": "lerna run lint:fix --parallel",
     "test": "lerna run test --parallel -- --runInBand --logHeapUsage",
     "test:verbose": "lerna run test --parallel -- --runInBand --coverage",
     "comp:compile": "yarn workspace @gsystem/components run compile",
