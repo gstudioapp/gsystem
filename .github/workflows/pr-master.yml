@@ -23,7 +23,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install environment
         run: yarn install
-      - name: Linter
-        run: yarn lint
       - name: Tests coverage
         run: yarn test:verbose
