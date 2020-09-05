@@ -10,7 +10,7 @@
       "allowBranch": [
         "master"
       ],
-      "message": "chore(release): publish version %s - [SKIP CI]",
+      "message": "chore(release): publish version - [SKIP CI]",
       "ignoreChanges": [
         "yarn.lock"
       ],
