@@ -34,13 +34,11 @@ jobs:
           git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
 
       - name: Get Previous tag
-        id: previoustag
-        run: echo "PREVOUS_TAG:${PREVIOUS_TAG}"
-        env:
-          PREVIOUS_TAG: $(git describe --exact-match --tags $(git log -n1 --pretty='%h'))
+          id: previoustag
+          uses: WyriHaximus/github-action-get-previous-tag@master
 
       - name: Get next minor version
         id: semvers
         uses: WyriHaximus/github-action-next-semvers@master
         with:
-          version: ${{ env.PREVIOUS_TAG }}
+          version: ${{ steps.previoustag.outputs.tag }}
