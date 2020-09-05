@@ -53,4 +53,4 @@ jobs:
         env:
           CI: true
         run: |
-          yarn release -- from-package
+          yarn release -- --force-publish from-package
