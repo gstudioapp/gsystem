@@ -20,6 +20,7 @@ jobs:
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         uses: actions/checkout@master
         with:
+          fetch-depth: 0
           ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -65,13 +66,13 @@ jobs:
 
       - name: Get Previous tag
         id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@master
+        run: PREVIOUS_TAG=$(git ls-remote --tags | grep -o 'v.*' | sort -r | head -1)
 
       - name: Get next minor version
         id: semvers
         uses: WyriHaximus/github-action-next-semvers@master
         with:
-          version: ${{ steps.previoustag.outputs.tag }}
+          version: ${{ env.PREVIOUS_TAG }}
 
       - name: Set Current Version
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
