@@ -38,7 +38,7 @@ jobs:
           git checkout master
           git config --global user.name 'thiagokpelo'
           git config --global user.email 'thiagokpelo@gmail.com'
-          git remote set-url origin https://thiagokpelo:${GSYSTEM_AUTH_TOKEN}@github.com/$GITHUB_REPOSITORY
+          git remote set-url origin https://gstudioapp:${GSYSTEM_AUTH_TOKEN}@github.com/$GITHUB_REPOSITORY
       - name: Authenticate with Registry
         run: |
           yarn logout
