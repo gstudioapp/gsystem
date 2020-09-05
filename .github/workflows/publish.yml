@@ -32,17 +32,16 @@ jobs:
         run: yarn install
       # Define ${CURRENT_VERSION}
       - name: Define current version
-        uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
-          - name: Get Previous tag
-            id: previoustag
-            uses: "WyriHaximus/github-action-get-previous-tag@master"
-          - name: 'Get next minor version'
-            id: semvers
-            uses: "WyriHaximus/github-action-next-semvers@master"
-            with:
-              version: ${{ steps.previoustag.outputs.tag }}
+        - name: Get Previous tag
+          id: previoustag
+          uses: "WyriHaximus/github-action-get-previous-tag@master"
+        - name: 'Get next minor version'
+          id: semvers
+          uses: "WyriHaximus/github-action-next-semvers@master"
+          with:
+            version: ${{ steps.previoustag.outputs.tag }}
       - name: Set Current Version
         shell: bash -ex {0}
         run: |
