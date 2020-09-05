@@ -6,6 +6,8 @@ on:
       - master
     types: [closed]
 
+pr:
+
 env:
   CI: true
 
@@ -14,10 +16,8 @@ jobs:
     name: Publish
     runs-on: ubuntu-18.04
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup Node ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
           node-version: 12
           registry-url: 'https://npm.pkg.github.com'
@@ -39,10 +39,6 @@ jobs:
         uses: "WyriHaximus/github-action-next-semvers@master"
         with:
           version: ${{ steps.previoustag.outputs.tag }}
-      - name: Set Current Version
-        shell: bash -ex {0}
-        run: |
-          echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
         env:
           CURRENT_VERSION: ${{ steps.previoustag.outputs.patch }}
       - name: Tag Check
@@ -85,7 +81,7 @@ jobs:
       - name: Authenticate with Registry
         run: |
           yarn logout
-          echo "@apollo-elements:registry=http://registry.npmjs.org/" > .npmrc
+          echo "@gsystem:registry=http://registry.npmjs.org/" > .npmrc
           echo "registry=http://registry.npmjs.org/" >> .npmrc
           echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
           npm whoami
