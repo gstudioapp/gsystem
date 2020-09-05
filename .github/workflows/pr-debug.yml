@@ -34,8 +34,8 @@ jobs:
           git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
 
       - name: Get Previous tag
-          id: previoustag
-          uses: WyriHaximus/github-action-get-previous-tag@master
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@master
 
       - name: Get next minor version
         id: semvers
