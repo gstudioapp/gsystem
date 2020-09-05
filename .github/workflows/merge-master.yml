@@ -66,9 +66,9 @@ jobs:
 
       - name: Get Previous tag
         id: previoustag
-        run: echo "PREVOUS_TAG:`${PREVIOUS_TAG}"
+        run: echo "PREVOUS_TAG:${PREVIOUS_TAG}"
         env:
-          PREVIOUS_TAG: ${{ github.ref }}
+          PREVIOUS_TAG: $(git ls-remote --tags | grep -o 'v.*' | sort -r | head -1)
 
       - name: Get next minor version`
         id: semvers
