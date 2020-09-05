@@ -42,7 +42,6 @@ jobs:
       - name: Authenticate with Registry
         run: |
           yarn logout
-          echo "@gsystem:registry=http://registry.npmjs.org/" > .npmrc
           echo "registry=http://registry.npmjs.org/" >> .npmrc
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" >> .npmrc
           npm whoami
@@ -53,4 +52,4 @@ jobs:
         env:
           CI: true
         run: |
-          yarn release -- --force-publish from-package
+          yarn release -- from-package
