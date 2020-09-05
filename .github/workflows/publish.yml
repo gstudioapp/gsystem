@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node ${{ matrix.node_version }}
         uses: actions/setup-node@v1
         with:
-          node_version: 12
+          node-version: 12
           registry-url: 'https://npm.pkg.github.com'
       - name: Git Identity
         run: |
@@ -31,11 +31,23 @@ jobs:
       - name: Install
         run: yarn install
       # Define ${CURRENT_VERSION}
+      - uses: actions/checkout@v2.2.0
+        with:
+          fetch-depth: 0
+          - name: Get Previous tag
+            id: previoustag
+            uses: "WyriHaximus/github-action-get-previous-tag@master"
+          - name: 'Get next minor version'
+            id: semvers
+            uses: "WyriHaximus/github-action-next-semvers@master"
+            with:
+              version: ${{ steps.previoustag.outputs.tag }}
       - name: Set Current Version
         shell: bash -ex {0}
         run: |
-          CURRENT_VERSION=$(node -p 'require("./lerna.json").version')
           echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
+        env:
+          CURRENT_VERSION: ${{ steps.previoustag.outputs.patch }}
       - name: Tag Check
         id: tag_check
         shell: bash -ex {0}
