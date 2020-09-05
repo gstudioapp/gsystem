@@ -1,28 +1,28 @@
-name: Debug
-
-on: ["push"]
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-
-      - name: Get Previous tag
-        id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@master
-
-      - name: Get next minor version
-        id: semvers
-        uses: WyriHaximus/github-action-next-semvers@master
-        with:
-          version: ${{ steps.previoustag.outputs.tag }}
+#name: Debug
+#
+#on: ["push"]
+#
+#jobs:
+#  build:
+#
+#    runs-on: ubuntu-latest
+#
+#    strategy:
+#      matrix:
+#        node-version: [12.x]
+#
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@master
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Get Previous tag
+#        id: previoustag
+#        uses: WyriHaximus/github-action-get-previous-tag@master
+#
+#      - name: Get next minor version
+#        id: semvers
+#        uses: WyriHaximus/github-action-next-semvers@master
+#        with:
+#          version: ${{ steps.previoustag.outputs.tag }}

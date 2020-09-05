@@ -66,14 +66,10 @@ jobs:
 
       - name: Get Previous tag
         id: previoustag
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        run: echo "PREVOUS_TAG:${PREVIOUS_TAG}"
-        env:
-          PREVIOUS_TAG: $(git describe --exact-match --tags $(git log -n1 --pretty='%h'))
+        uses: WyriHaximus/github-action-get-previous-tag@master
 
-      - name: Get next minor version`
+      - name: Get next minor version
         id: semvers
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         uses: WyriHaximus/github-action-next-semvers@master
         with:
-          version: ${{ env.PREVIOUS_TAG }}
+          version: ${{ steps.previoustag.outputs.tag }}
