@@ -42,14 +42,15 @@ jobs:
       - name: Authenticate with Registry
         run: |
           yarn logout
+          echo "@gsystem:registry=http://registry.npmjs.org/" > .npmrc
           echo "registry=http://registry.npmjs.org/" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=NPM_TOKEN" >> .npmrc
           npm whoami
         env:
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
         run: |
-          yarn release -- from-package
+          yarn release -- --force-publish from-package
