@@ -31,7 +31,8 @@ jobs:
       - name: Install
         run: yarn install
       # Define ${CURRENT_VERSION}
-      - uses: actions/checkout@v2.2.0
+      - name: Define current version
+        uses: actions/checkout@v2.2.0
         with:
           fetch-depth: 0
           - name: Get Previous tag
