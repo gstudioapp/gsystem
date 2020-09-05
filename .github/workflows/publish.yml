@@ -6,8 +6,6 @@ on:
       - master
     types: [closed]
 
-pr:
-
 env:
   CI: true
 
