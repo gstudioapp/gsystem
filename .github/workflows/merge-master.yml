@@ -63,17 +63,13 @@ jobs:
         run: |
           yarn release -- from-package
 
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-
       - name: Get Previous tag
         id: previoustag
-        uses: "WyriHaximus/github-action-get-previous-tag@master"
+        uses: WyriHaximus/github-action-get-previous-tag@master
 
       - name: Get next minor version
         id: semvers
-        uses: "WyriHaximus/github-action-next-semvers@master"
+        uses: WyriHaximus/github-action-next-semvers@master
         with:
           version: ${{ steps.previoustag.outputs.tag }}
 
