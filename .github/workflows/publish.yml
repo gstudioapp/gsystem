@@ -31,7 +31,7 @@ jobs:
       - name: Install
         run: yarn install
       # Define ${CURRENT_VERSION}
-      - Define ${CURRENT_VERSION}
+      - name: Define ${CURRENT_VERSION}
         uses: actions/checkout@v2
         - name: Get Previous tag
           id: previoustag
