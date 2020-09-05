@@ -21,24 +21,31 @@ jobs:
         uses: actions/checkout@master
         with:
           ref: master
+
       - name: Use Node.js ${{ matrix.node-version }}
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install environment
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         run: yarn install
+
       - name: Login to github
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
-          GSYSTEM_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+          GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+          GITHUB_EMAIL: ${{ secrets.GSYSTEM_EMAIL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_USER: ${{ secrets.GSYSTEM_USER }}
         run: |
           git checkout master
-          git config --global user.name 'thiagokpelo'
-          git config --global user.email 'thiagokpelo@gmail.com'
-          git remote set-url origin https://github.com/gstudioapp/gsystem.git
+          git config --global user.name $GITHUB_USER
+          git config --global user.email $GITHUB_EMAIL
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
+
       - name: Authenticate with Registry
         run: |
           yarn logout
@@ -48,9 +55,74 @@ jobs:
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
         run: |
-          yarn release -- --force-publish from-package
+          yarn release -- from-package
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Get Previous tag
+        id: previoustag
+        uses: "WyriHaximus/github-action-get-previous-tag@master"
+
+      - name: Get next minor version
+        id: semvers
+        uses: "WyriHaximus/github-action-next-semvers@master"
+        with:
+          version: ${{ steps.previoustag.outputs.tag }}
+
+      - name: Set Current Version
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        shell: bash -ex {0}
+        run: |
+          CURRENT_VERSION=${CURRENT_VERSION}
+          echo "::set-env name=CURRENT_VERSION::${CURRENT_VERSION}"
+        env:
+          CURRENT_VERSION: ${{ steps.semvers.outputs.patch }}
+
+        - name: Tag Check
+          id: tag_check
+          shell: bash -ex {0}
+          run: |
+            GET_API_URL="https://api.github.com/repos/${GITHUB_REPOSITORY}/git/ref/tags/v${CURRENT_VERSION}"
+            http_status_code=$(curl -LI $GET_API_URL -o /dev/null -w '%{http_code}\n' -s \
+              -H "Authorization: token ${GITHUB_TOKEN}")
+            if [ "$http_status_code" -ne "404" ] ; then
+              echo "::set-output name=exists_tag::true"
+            else
+              echo "::set-output name=exists_tag::false"
+            fi
+          env:
+            GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+            GITHUB_REPOSITORY: ${{ github.repository }}
+            CURRENT_VERSION: ${{ env.CURRENT_VERSION }}
+
+        - name: Create Git Tag
+          if: steps.tag_check.outputs.exists_tag == 'false'
+          uses: azu/action-package-version-to-git-tag@v1
+          with:
+            version: ${{ env.CURRENT_VERSION }}
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            github_repo: ${{ github.repository }}
+            git_commit_sha: ${{ github.sha }}
+            git_tag_prefix: "v"
+
+        - name: Create Release
+          id: create_release
+          if: steps.tag_check.outputs.exists_tag == 'false' && github.event.pull_request.merged == true
+          uses: actions/create-release@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+          with:
+            tag_name: v${{ env.CURRENT_VERSION }}
+            release_name: ${{ github.event.pull_request.title }}
+            body: |
+              ${{ github.event.pull_request.body }}
+            draft: false
+            prerelease: false
