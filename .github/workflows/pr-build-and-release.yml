@@ -17,7 +17,7 @@ jobs:
           tag_name: ${{ github.ref }}
           # release_name: ${{ env.APP_NAME }} ${{ github.ref }}
           release_name: ${{ github.ref }} ${{ github.event.pull_request.title }}
-            body: |
-              ${{ github.event.pull_request.body }}
-            draft: false
-            prerelease: false
+          body: |
+            ${{ github.event.pull_request.body }}
+          draft: false
+          prerelease: false
