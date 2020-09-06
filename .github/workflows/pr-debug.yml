@@ -15,7 +15,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@master
         with:
-#          fetch-depth: 0
+          fetch-depth: 0
           ref: master
 
       - name: Get Previous tag
@@ -28,7 +28,7 @@ jobs:
           echo GITHUB_HEAD_REF: $GITHUB_HEAD_REF
           echo GITHUB_BASE_REF: $GITHUB_BASE_REF
           echo PREVIOUS_TAG: ${{ steps.previoustag.outputs.tag }}
-          echo LAST_TAG: $(git ls-remote --tags | grep -o 'v.*' | sort -r | head -1)
+          echo LAST_TAG: $(git describe --tags $(git rev-list --tags --max-count=1))
 
 #      - name: Get next minor version
 #        id: semvers
