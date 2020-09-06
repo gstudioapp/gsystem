@@ -73,3 +73,16 @@ jobs:
         uses: WyriHaximus/github-action-next-semvers@master
         with:
           version: ${{ steps.previoustag.outputs.tag }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+        with:
+          tag_name: ${{ steps.semvers.outputs.patch }}
+          # release_name: ${{ env.APP_NAME }} ${{ github.ref }}
+          release_name: ${{ steps.semvers.outputs.patch }} ${{ github.event.pull_request.title }}
+          body: |
+            ${{ github.event.pull_request.body }}
+          draft: false
+          prerelease: false
