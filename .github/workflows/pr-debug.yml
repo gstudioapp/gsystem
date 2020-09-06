@@ -29,6 +29,7 @@ jobs:
           echo GITHUB_BASE_REF: $GITHUB_BASE_REF
           echo PREVIOUS_TAG: ${{ steps.previoustag.outputs.tag }}
           echo LAST_TAG: $(git describe --tags $(git rev-list --tags --max-count=1))
+          echo GITHUB_ACTOR: $GITHUB_ACTOR
 
 #      - name: Get next minor version
 #        id: semvers
