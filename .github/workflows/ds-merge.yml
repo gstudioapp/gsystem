@@ -1,0 +1,76 @@
+name: '[Package/DS] Merge to main branch'
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [closed]
+    paths:
+      - 'packages/ds/**'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+          ref: master
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install environment
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        run: yarn install
+
+      - name: Login to github
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        env:
+          CI: true
+          GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+          GITHUB_EMAIL: ${{ secrets.GSYSTEM_EMAIL }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_USER: ${{ secrets.GSYSTEM_USER }}
+        run: |
+          git checkout master
+          git config --global user.name $GITHUB_USER
+          git config --global user.email $GITHUB_EMAIL
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
+
+      - name: Authenticate with Registry
+        run: |
+          yarn logout
+          echo "@gsystem:registry=https://npm.pkg.github.com/" > .npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc
+          npm whoami
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Deploy
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        env:
+          CI: true
+        run: |
+          yarn release -- from-package
+
+      - name: Get Previous tag
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@master
+
+      - name: Set Current version
+        id: semvers
+        uses: WyriHaximus/github-action-next-semvers@master
+        with:
+          version: ${{ steps.previoustag.outputs.tag }}
