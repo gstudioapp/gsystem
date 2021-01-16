@@ -16,3 +16,13 @@ npm install @gsystem/components
 // with yarn
 yarn add @gsystem/components
 ```
+
+## Packages
+
+```bash
+./packages
+├── components
+├── ds
+├── protocols
+└── tokens
+```
