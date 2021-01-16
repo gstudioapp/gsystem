@@ -1,10 +1,10 @@
 {
-  "name": "ds",
+  "name": "@gsystem/ds",
   "version": "0.0.1",
   "description": "> TODO: description",
   "author": "Thiago Capelo <thiagokpelo@gmail.com>",
   "homepage": "https://github.com/gstudioapp/gsystem#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/ds.js",
   "directories": {
     "lib": "lib",
@@ -13,9 +13,13 @@
   "files": [
     "lib"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gstudioapp/gsystem.git"
+    "url": "git+ssh://git@github.com:gstudioapp/gsystem.git",
+    "directory": "packages/ds"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
