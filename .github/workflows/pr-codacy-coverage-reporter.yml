@@ -1,6 +1,9 @@
 name: codacy-coverage-reporter
 
-on: ["push"]
+on:
+  push:
+    paths:
+      - 'packages/**'
 
 jobs:
   codacy-coverage-reporter:

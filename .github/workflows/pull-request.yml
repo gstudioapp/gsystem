@@ -1,9 +1,7 @@
-name: PR on master
+name: '[Project] Pull request'
 
 on:
   pull_request:
-    branches:
-      - master
     types: [opened, reopened, synchronize]
 
 jobs:
