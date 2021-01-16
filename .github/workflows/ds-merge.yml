@@ -63,7 +63,7 @@ jobs:
         env:
           CI: true
         run: |
-          yarn release -- from-package
+          yarn release -- from-package --tag-version-prefix='ds'
 
       - name: Get Previous tag
         id: previoustag
