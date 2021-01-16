@@ -5,8 +5,9 @@ on:
     branches:
       - master
     types: [closed]
-    paths-ignore:
-      - 'packages/ds/**'
+    paths:
+      - 'packages/**'
+      - '!packages/ds/**'
 
 jobs:
   build:
