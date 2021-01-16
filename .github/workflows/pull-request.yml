@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install environment
-        run: yarn install
-
-      - name: Tests coverage
-        run: yarn test:verbose
+#      - name: Install environment
+#        run: yarn install
+#
+#      - name: Tests coverage
+#        run: yarn test:verbose
