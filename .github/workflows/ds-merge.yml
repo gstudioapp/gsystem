@@ -31,6 +31,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://npm.pkg.github.com'
+          scope: 'gstudioapp'
 
       - name: Install environment
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
