@@ -25,18 +25,6 @@ jobs:
           fetch-depth: 0
           ref: master
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-          registry-url: 'https://npm.pkg.github.com'
-          scope: 'gstudioapp'
-
-      - name: Install environment
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        run: yarn install
-
       - name: Login to github
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
@@ -51,10 +39,25 @@ jobs:
           git config --global user.email $GITHUB_EMAIL
           git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
 
+      - name: Use Node.js ${{ matrix.node-version }}
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@gsystem'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+
+      - name: Install environment
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
+        run: yarn install
+
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
+          NODE_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
         run: |
           npm whoami
           yarn release -- from-package --tag-version-prefix='ds'
