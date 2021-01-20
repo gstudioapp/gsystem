@@ -37,7 +37,7 @@ jobs:
           git checkout master
           git config --global user.name $GITHUB_USER
           git config --global user.email $GITHUB_EMAIL
-          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKEN@github.com/gstudioapp/$GITHUB_REPOSITORY.git
 
       - name: Use Node.js ${{ matrix.node-version }}
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
