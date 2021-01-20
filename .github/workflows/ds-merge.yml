@@ -18,6 +18,12 @@ jobs:
         node-version: [12.x]
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+          ref: master
+
       - name: Configure CI Git User
         env:
           CI: true
@@ -30,12 +36,6 @@ jobs:
           git config --global user.name $GITHUB_USER
           git config --global user.email $GITHUB_EMAIL
           git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKEN@github.com/gstudioapp/$GITHUB_REPOSITORY.git
-
-      - name: Checkout
-        uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
