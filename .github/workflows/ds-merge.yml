@@ -2,9 +2,8 @@ name: '[Package/DS] Merge to main branch'
 
 on:
   pull_request:
-    branches:
-      - master
-    types: [closed]
+    branches: ['master']
+    types: [opened, reopened, synchronize]
     paths:
       - 'packages/ds/**'
 
@@ -41,12 +40,10 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@gsystem'
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
-        run: yarn install --ignore-scripts
+        run: yarn install
 
       - name: Install Dependencies
         run: yarn install
