@@ -2,8 +2,7 @@ name: '[Package/DS] Merge to main branch'
 
 on:
   pull_request:
-    branches:
-      - master
+    branches: ['master']
     types: [closed]
     paths:
       - 'packages/ds/**'
@@ -41,12 +40,9 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@gsystem'
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
-        run: yarn install --ignore-scripts
 
       - name: Install Dependencies
         run: yarn install
@@ -54,16 +50,17 @@ jobs:
       - name: Authenticate with Registry
         run: |
           yarn logout
-          echo "@gsystem:registry=https://npm.pkg.github.com" > .npmrc
-          echo ":registry=https://npm.pkg.github.com" >> .npmrc
-          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+          echo "@gsystem:registry=http://registry.npmjs.org/" > .npmrc
+          echo "registry=http://registry.npmjs.org/" >> .npmrc
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> .npmrc
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Publish Package
-        run: yarn release -- from-package --tag-version-prefix='ds'
+        run: yarn release -- from-package
         env:
+          CI: true
           GH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
