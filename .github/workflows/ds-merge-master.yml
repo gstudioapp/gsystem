@@ -2,7 +2,9 @@ name: '[Package/DS] Merge to main branch'
 
 on:
   pull_request:
-    branches: ['master']
+    # branches: ['master']
+    branches-ignore:
+      - '**'
     types: [closed]
     paths:
       - 'packages/ds/**'
