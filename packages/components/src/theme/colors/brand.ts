@@ -1,8 +1,6 @@
-import { ColorHues } from '@chakra-ui/core';
-
 import { Brand } from './types';
 
-const primary: ColorHues = {
+const primary = {
   50: '#f3eaff',
   100: '#e7d5ff',
   200: '#ceacff',

@@ -1,4 +1,4 @@
-import { ITheme } from '@chakra-ui/core';
+import { Theme } from '@chakra-ui/react';
 
 import { ColorsType } from './colors';
 import { Density, Space } from './space';
@@ -7,4 +7,4 @@ export type GSystemThemeType = {
   colors: ColorsType;
   space: Space;
   target?: Density;
-} & Omit<ITheme, 'colors' | 'space'>;
+} & Omit<Theme, 'colors' | 'space'>;

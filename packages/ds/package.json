@@ -23,35 +23,7 @@
   "bugs": {
     "url": "https://github.com/gstudioapp/gsystem/issues"
   },
-  "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@emotion/core": "^11.0.0",
-    "@rollup/plugin-commonjs": "^15.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@storybook/addon-actions": "^6.0.16",
-    "@storybook/addon-essentials": "^6.0.16",
-    "@storybook/addon-links": "^6.0.16",
-    "@storybook/react": "^6.0.16",
-    "@types/testing-library__jest-dom": "^5.9.2",
-    "@types/testing-library__react": "^10.2.0",
-    "@typescript-eslint/parser": "^3.10.1",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "emotion-theming": "^11.0.0",
-    "react-docgen-typescript-plugin": "^0.6.0",
-    "react-is": "^16.13.1",
-    "rollup": "^2.26.5",
-    "rollup-plugin-babel": "^4.4.0",
-    "rollup-plugin-typescript2": "^0.27.2",
-    "ts-loader": "^8.0.2"
-  },
-  "peerDependencies": {
-    "@chakra-ui/react": "^1.1.5",
-    "@emotion/react": "^11.1.4",
-    "@emotion/styled": "^11.0.0",
-    "framer-motion": "^3.2.1",
-    "react": "^16.13.1"
-  },
+  "devDependencies": {},
   "scripts": {
     "typecheck": "tsc --project tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck --watch",
