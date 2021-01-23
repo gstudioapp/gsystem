@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 
-import { setup } from '../../test-utils';
+import { setup } from '../../../test-utils';
 
 import { Button } from '../Button';
 
