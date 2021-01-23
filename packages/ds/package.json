@@ -54,9 +54,9 @@
   },
   "scripts": {
     "typecheck": "tsc --project tsconfig.app.json --noEmit",
-    "typecheck:dev": "yarn typecheck -- --watch",
+    "typecheck:dev": "yarn typecheck --watch",
     "lint": "eslint ./src --ext=js,jsx,ts,tsx",
-    "lint:fix": "yarn lint -- --fix",
+    "lint:fix": "yarn lint --fix",
     "test": "jest",
     "test:watch": "jest --watch --no-coverage",
     "compile": "cross-env NODE_ENV=production rollup -c",
