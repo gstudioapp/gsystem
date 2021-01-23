@@ -24,7 +24,7 @@ const plugins = [
 
 export default [
   {
-    input: 'src/index.ts',
+    input: 'src/components/index.ts',
     plugins,
     external: ['@chakra-ui/react', '@emotion/core', '@emotion/styled', 'framer-motion', 'react'],
     output: formats.map((format) => ({
