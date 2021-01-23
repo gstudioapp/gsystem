@@ -1,4 +1,9 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/__tests__/*.spec.ts"]
+  "types": [
+    "jest",
+    "react",
+    "node"
+  ],
+  "include": ["src/**/__tests__/*.spec.ts",     "node_modules/@types/jest/index.d.ts"]
 }

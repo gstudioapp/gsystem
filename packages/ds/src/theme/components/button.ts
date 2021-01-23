@@ -29,37 +29,56 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
   },
 
   variants: {
-    primary: ({ colorScheme = 'primary' }) => ({
-      bg: `${colorScheme}.500`,
-      color: 'white',
-      _hover: {
-        bg: `${colorScheme}.700`,
-      },
-    }),
-    secondary: ({ colorScheme = 'secondary' }) => ({
-      bg: `${colorScheme}.50`,
-      color: `${colorScheme}.700`,
-      textStyle: 'custom',
-      _hover: {
-        bg: `${colorScheme}.100`,
-      },
-    }),
-    outline: ({ colorScheme = 'primary' }) => ({
-      bg: `${colorScheme}.50`,
-      borderColor: `${colorScheme}.500`,
-      border: 'sm',
-      color: `${colorScheme}.500`,
-      _hover: {
-        bg: `${colorScheme}.100`,
-      },
-    }),
-    destructive: ({ colorScheme = 'supportA' }) => ({
-      bg: `${colorScheme}.500`,
-      color: 'white',
-      _hover: {
-        bg: `${colorScheme}.600`,
-      },
-    }),
+    primary: (): Record<string, any> => {
+      const colorScheme = 'primary';
+      return {
+        bg: `${colorScheme}.500`,
+        color: 'white',
+        _hover: {
+          bg: `${colorScheme}.700`,
+        },
+      };
+    },
+    secondary: (): Record<string, any> => {
+      const colorScheme = 'gray';
+      const colorMain = `${colorScheme}.800`;
+      const colorContrasted = 'white';
+
+      return {
+        bg: colorContrasted,
+        border: '1px solid',
+        borderColor: colorMain,
+        color: colorMain,
+        textStyle: 'custom',
+        _hover: {
+          bg: colorMain,
+          color: colorContrasted,
+          borderColor: colorContrasted,
+        },
+      };
+    },
+    outline: (): Record<string, any> => {
+      const colorScheme = 'primary';
+      return {
+        bg: `${colorScheme}.50`,
+        borderColor: `${colorScheme}.500`,
+        border: 'sm',
+        color: `${colorScheme}.500`,
+        _hover: {
+          bg: `${colorScheme}.100`,
+        },
+      };
+    },
+    destructive: (): Record<string, any> => {
+      const colorScheme = 'supportA';
+      return {
+        bg: `${colorScheme}.500`,
+        color: 'white',
+        _hover: {
+          bg: `${colorScheme}.600`,
+        },
+      };
+    },
   },
 
   defaultProps: {

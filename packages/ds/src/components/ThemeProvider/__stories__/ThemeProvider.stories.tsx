@@ -3,7 +3,7 @@ import React from 'react';
 import { ThemeProvider } from '../ThemeProvider';
 
 export default {
-  title: 'Example/ThemeProvider',
+  title: 'Theming/ThemeProvider',
   component: ThemeProvider,
   argTypes: {
     theme: { colors: { primary: 'red' } },
