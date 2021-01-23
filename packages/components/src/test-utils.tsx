@@ -1,7 +1,8 @@
 /* eslint-disable */
 import React, { FC } from 'react';
 import { render, RenderResult } from '@testing-library/react';
-import { ThemeProvider } from '@chakra-ui/core';
+
+import {ThemeProvider} from "./ThemeProvider";
 
 const Wrapper = ({ children }) => <ThemeProvider>{children}</ThemeProvider>;
 

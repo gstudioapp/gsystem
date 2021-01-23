@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 
-import { setup } from '../../test-utils';
+import { setup } from '../../../test-utils';
 
 import { ThemeProvider } from '../ThemeProvider';
 

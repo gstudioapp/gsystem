@@ -1,4 +1,4 @@
-import { ThemeProvider as ChakraThemeProvider } from '@chakra-ui/core';
+import { ThemeProvider as ChakraThemeProvider } from '@chakra-ui/react';
 import React, { FC } from 'react';
 
 import { theme as gTheme, GSystemThemeType } from '../theme';
