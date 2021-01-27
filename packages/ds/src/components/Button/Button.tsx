@@ -8,7 +8,7 @@ export interface Props extends ButtonProps {
   variant?: ButtonVariants | ButtonProps['variant'];
 }
 
-export const Button: FC<Props> = ({ size = 'md', variant = 'primary', children, ...props }) => (
+export const Button: FC<Props> = ({ size, variant, children, ...props }) => (
   <ChakraButton variant={variant} size={size} {...props}>
     {children}
   </ChakraButton>

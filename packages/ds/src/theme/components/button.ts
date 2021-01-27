@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { ButtonProps } from '@chakra-ui/react';
 
 import { ThemeComponent } from '../../types/theme-component';
+import { getColorSchemeOrDefault } from '../utils/variants';
 
 export type ButtonSizes = 'sm' | 'md' | 'lg' | string;
-export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'outline';
+export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'outline' | null;
 
 export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = {
-  baseStyle: (props) => ({
+  baseStyle: () => ({
     py: 'sm',
     px: 'md',
     borderRadius: 'sm',
@@ -29,19 +31,27 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
   },
 
   variants: {
-    primary: (): Record<string, any> => {
-      const colorScheme = 'primary';
+    primary: ({ colorScheme }) => {
+      const colorSchemaDefault = getColorSchemeOrDefault({
+        colorScheme,
+        colorSchemeDefault: 'primary',
+      });
+
       return {
-        bg: `${colorScheme}.500`,
+        bg: `${colorSchemaDefault}.500`,
         color: 'white',
         _hover: {
-          bg: `${colorScheme}.700`,
+          bg: `${colorSchemaDefault}.700`,
         },
       };
     },
-    secondary: (): Record<string, any> => {
-      const colorScheme = 'gray';
-      const colorMain = `${colorScheme}.800`;
+    secondary: ({ colorScheme }) => {
+      const colorSchemaDefault = getColorSchemeOrDefault({
+        colorScheme,
+        colorSchemeDefault: 'gray',
+      });
+
+      const colorMain = `${colorSchemaDefault}.800`;
       const colorContrasted = 'white';
 
       return {
@@ -57,25 +67,33 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
         },
       };
     },
-    outline: (): Record<string, any> => {
-      const colorScheme = 'primary';
+    outline: ({ colorScheme }) => {
+      const colorSchemaDefault = getColorSchemeOrDefault({
+        colorScheme,
+        colorSchemeDefault: 'primary',
+      });
+
       return {
-        bg: `${colorScheme}.50`,
-        borderColor: `${colorScheme}.500`,
+        bg: `${colorSchemaDefault}.50`,
+        borderColor: `${colorSchemaDefault}.500`,
         border: 'sm',
-        color: `${colorScheme}.500`,
+        color: `${colorSchemaDefault}.500`,
         _hover: {
-          bg: `${colorScheme}.100`,
+          bg: `${colorSchemaDefault}.100`,
         },
       };
     },
-    destructive: (): Record<string, any> => {
-      const colorScheme = 'supportA';
+    destructive: ({ colorScheme }) => {
+      const colorSchemaDefault = getColorSchemeOrDefault({
+        colorScheme,
+        colorSchemeDefault: 'supportA',
+      });
+
       return {
-        bg: `${colorScheme}.500`,
+        bg: `${colorSchemaDefault}.500`,
         color: 'white',
         _hover: {
-          bg: `${colorScheme}.600`,
+          bg: `${colorSchemaDefault}.600`,
         },
       };
     },
@@ -83,6 +101,7 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
 
   defaultProps: {
     size: 'md',
-    variant: 'outline',
+    variant: 'primary',
+    colorScheme: null,
   },
 };

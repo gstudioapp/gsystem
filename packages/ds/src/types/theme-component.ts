@@ -1,3 +1,5 @@
+import { SystemStyleObject } from '@chakra-ui/react';
+
 export interface ThemeComponent<ComponentTokenSizes, Variants, ChakraComponentProps> {
   // Styles for the base style
   baseStyle: (props: ChakraComponentProps) => ChakraComponentProps;
@@ -12,5 +14,10 @@ export interface ThemeComponent<ComponentTokenSizes, Variants, ChakraComponentPr
   defaultProps?: {
     size: ComponentTokenSizes;
     variant: Variants;
+    colorScheme?: Variants;
   };
 }
+
+export type StyleInterpolation =
+  | { [part: string]: SystemStyleObject }
+  | ((options: Record<string, any>) => { [part: string]: SystemStyleObject });

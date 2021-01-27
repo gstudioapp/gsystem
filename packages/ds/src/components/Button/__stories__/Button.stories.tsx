@@ -7,7 +7,6 @@ export default {
   title: 'Atoms/Button',
   component: Button,
   args: {
-    size: 'md',
     children: 'Click me!',
     onClick: (): void => {
       console.log('clicked me!!');
@@ -33,9 +32,7 @@ export default {
 const Template: Story<Props> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  variant: 'primary',
-} as Props;
+Primary.args = {} as Props;
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -45,9 +42,13 @@ Secondary.args = {
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
   variant: 'outline',
+  size: 'sm',
+  children: "I'm small",
 } as Props;
 
 export const Destructive = Template.bind({});
 Destructive.args = {
   variant: 'destructive',
+  size: 'lg',
+  children: "I'm big",
 } as Props;
