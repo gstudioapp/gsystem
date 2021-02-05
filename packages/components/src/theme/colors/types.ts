@@ -1,4 +1,4 @@
-import { ColorHues, VariantColor } from '@chakra-ui/core';
+export type ColorHues = Record<string, any>;
 
 export type Brand = {
   primary: ColorHues;
@@ -15,10 +15,9 @@ export type Colors =
   | 'support.danger'
   | 'support.info'
   | 'support.success'
-  | 'support.warning'
-  | VariantColor;
+  | 'support.warning';
 
 export type ColorsType = {
   brand: Brand;
   support: Support;
-} & Record<VariantColor, ColorHues | string>;
+} & ColorHues;

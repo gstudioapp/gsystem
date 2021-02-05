@@ -7,7 +7,7 @@ import { Button } from '../Button';
 const initialProps = {
   children: 'Click me',
   onClick: jest.fn(),
-  variantColor: 'red',
+  colorScheme: 'red',
 };
 
 describe('Button', () => {

@@ -33,10 +33,6 @@
     "typecheck": "tsc --project ./tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck -- --watch"
   },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^3.9.1",
-    "eslint-plugin-import": "^2.22.0",
-    "prettier": "^2.1.1"
-  },
+  "devDependencies": {},
   "gitHead": "899c1f8d767b4c68a9ae55b8df902eaab3b24ea7"
 }

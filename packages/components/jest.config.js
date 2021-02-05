@@ -2,7 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
-      tsConfig: 'tsconfig.spec.json',
+      tsconfig: 'tsconfig.spec.json',
       // TODO: enable diagnostics, so we can have 100% type checking on tests
       // for now, it generates a lot of typescript errors and here we're suppressing them
       diagnostics: false,

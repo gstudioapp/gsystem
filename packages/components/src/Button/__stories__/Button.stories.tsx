@@ -14,18 +14,18 @@ const Template = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  variantColor: 'brand.primary',
+  colorSchema: 'brand.primary',
   children: 'Primary Button',
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  variantColor: 'support.success',
+  colorSchema: 'support.success',
   children: 'Success Button',
 };
 
 export const Facebook = Template.bind({});
 Facebook.args = {
-  variantColor: 'facebook',
+  colorSchema: 'facebook',
   children: 'Facebook Button',
 };

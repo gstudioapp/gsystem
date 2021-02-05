@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import { render, RenderResult } from '@testing-library/react';
 
-import { ThemeProvider } from './ThemeProvider';
+import { ThemeProvider } from './components';
 
 const Wrapper = ({ children }) => <ThemeProvider>{children}</ThemeProvider>;
 

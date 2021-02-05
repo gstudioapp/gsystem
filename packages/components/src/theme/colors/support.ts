@@ -1,6 +1,4 @@
-import { ColorHues } from '@chakra-ui/core';
-
-import { Support } from './types';
+import { ColorHues, Support } from './types';
 
 const danger: ColorHues = {
   50: '#ffecec',

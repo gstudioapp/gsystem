@@ -1,1 +1,1 @@
-export { default as ThemeProviderDecorator } from './ThemeProvider'
+export * from './theme-provider-decorator';

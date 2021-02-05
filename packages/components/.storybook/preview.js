@@ -1,6 +1,6 @@
 import { addDecorator, addParameters } from '@storybook/react';
 
-import { ThemeProviderDecorator } from './decorators';
+import { ThemeProviderDecorator } from './decorators'
 
 addDecorator(ThemeProviderDecorator);
 

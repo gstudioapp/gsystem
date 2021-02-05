@@ -1,2 +1,2 @@
 export * from './ThemeProvider';
-export { CSSReset, CSSResetProps, ColorModeProvider } from '@chakra-ui/core';
+export { CSSReset, ColorModeProvider } from '@chakra-ui/react';

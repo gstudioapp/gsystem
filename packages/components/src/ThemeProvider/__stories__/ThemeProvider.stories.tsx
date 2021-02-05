@@ -14,6 +14,6 @@ const Template = (args) => <ThemeProvider {...args} />;
 
 export const Simple = Template.bind({});
 Simple.args = {
-  variantColor: 'red',
+  colorScheme: 'red',
   children: <div>Hello</div>,
 };
