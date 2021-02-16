@@ -8,7 +8,7 @@ const initialProps = {
   placeholder: 'Example placeholder',
 };
 
-describe('Button', () => {
+describe('Input', () => {
   it('should render the input with a placeholder', () => {
     const { getByPlaceholderText } = setup(Input)(initialProps);
     const inputEl = getByPlaceholderText(initialProps.placeholder);
