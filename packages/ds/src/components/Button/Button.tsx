@@ -16,7 +16,7 @@ export const Button: FC<ButtonProps> = ({ size, variant, colorScheme, children, 
   const styles = useStyleConfig('Button', { size, variant, colorScheme });
 
   return (
-    <ChakraButton sx={styles} {...props}>
+    <ChakraButton data-testid="button" sx={styles} {...props}>
       {children}
     </ChakraButton>
   );
