@@ -13,10 +13,23 @@ export default {
         options: ['sm', 'md', 'lg'],
       },
     },
+    placeholder: {
+      defaultValue: 'Place a text here',
+      control: {
+        type: 'text',
+      },
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isInvalid: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta;
 
-const Template: Story<InputProps> = (args) => <Input {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {} as InputProps;
+export const Default: Story<InputProps> = (args) => <Input {...args} />;

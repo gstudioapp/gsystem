@@ -12,10 +12,10 @@ export interface InputProps extends ChakraInputProps {
   variant?: InputVariants | ChakraInputProps['variant'];
 }
 
-export const Input: FC<InputProps> = ({ size, variant, ...props }) => {
-  const styles = useStyleConfig('Input', { size, variant });
+export const Input: FC<InputProps> = ({ size, variant, colorScheme, ...props }) => {
+  const styles = useStyleConfig('Input', { size, variant, colorScheme });
 
-  return <ChakraInput sx={styles} {...props} />;
+  return <ChakraInput focusBorderColor="primary.100" sx={styles} {...props} />;
 };
 
 Input.displayName = 'Input';
