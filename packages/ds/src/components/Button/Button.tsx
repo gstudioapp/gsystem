@@ -12,8 +12,8 @@ export interface ButtonProps extends ChakraButtonProps {
   variant?: ButtonVariants | ChakraButtonProps['variant'];
 }
 
-export const Button: FC<ButtonProps> = ({ size, variant, children, ...props }) => {
-  const styles = useStyleConfig('Button', { size, variant });
+export const Button: FC<ButtonProps> = ({ size, variant, colorScheme, children, ...props }) => {
+  const styles = useStyleConfig('Button', { size, variant, colorScheme });
 
   return (
     <ChakraButton sx={styles} {...props}>
