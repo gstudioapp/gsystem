@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { Button, Props } from '../Button';
+import { Button, ButtonProps } from '../Button';
 
 export default {
   title: 'Atoms/Button',
@@ -25,30 +25,32 @@ export default {
         options: ['primary', 'secondary', 'destructive', 'outline'],
       },
     },
-    children: { control: 'string' },
+    children: {
+      control: 'string',
+    },
   },
 } as Meta;
 
-const Template: Story<Props> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {} as Props;
+Primary.args = {} as ButtonProps;
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
-} as Props;
+} as ButtonProps;
 
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
   variant: 'outline',
   size: 'sm',
   children: "I'm small",
-} as Props;
+} as ButtonProps;
 
 export const Destructive = Template.bind({});
 Destructive.args = {
   variant: 'destructive',
   size: 'lg',
   children: "I'm big",
-} as Props;
+} as ButtonProps;

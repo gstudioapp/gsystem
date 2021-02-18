@@ -13,14 +13,15 @@ const initialProps = {
 
 describe('Button', () => {
   it('should render a label', () => {
-    const { getByText } = setup(Button)(initialProps);
-    const buttonEl = getByText(initialProps.children);
+    const { getByTestId } = setup(Button)(initialProps);
+    const buttonEl = getByTestId('button');
+
     expect(buttonEl).toBeInTheDocument();
   });
 
   it('should call onClick props', () => {
-    const { getByText } = setup(Button)(initialProps);
-    const buttonEl = getByText(initialProps.children);
+    const { getByTestId } = setup(Button)(initialProps);
+    const buttonEl = getByTestId('button');
 
     fireEvent.click(buttonEl);
 
