@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import { Button, ButtonProps } from '../Button';
-import { AddIcon } from '@chakra-ui/icons';
+import { InfoIcon } from '@chakra-ui/icons';
 
 export default {
   title: 'Atoms/Button',
@@ -70,4 +70,10 @@ export const Destructive = Template.bind({});
 Destructive.args = {
   variant: 'destructive',
   children: 'Destructive Button',
+} as ButtonProps;
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  children: 'Primary Button',
+  leftIcon: <InfoIcon />,
 } as ButtonProps;
