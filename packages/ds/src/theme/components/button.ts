@@ -3,14 +3,15 @@ import { ButtonProps } from '@chakra-ui/react';
 
 import { ThemeComponent } from '../../types/theme-component';
 import { getColorSchemeOrDefault } from '../utils/variants';
+import { colors } from '../foundations';
 
 export type ButtonSizes = 'sm' | 'md' | 'lg' | string;
 export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'outline' | null;
 
 export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = {
   baseStyle: () => ({
-    py: 'sm',
-    px: 'md',
+    px: 'sm',
+    paddingX: '3',
     borderRadius: 'sm',
     fontWeight: 'normal',
   }),
@@ -43,27 +44,39 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
         _hover: {
           bg: `${colorSchemaDefault}.700`,
         },
+        _focus: {
+          boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][200]}`,
+        },
+        _disabled: {
+          bg: `${colorSchemaDefault}.300`,
+          cursor: 'not-allowed',
+        },
       };
     },
     secondary: ({ colorScheme }) => {
       const colorSchemaDefault = getColorSchemeOrDefault({
         colorScheme,
-        colorSchemeDefault: 'gray',
+        colorSchemeDefault: 'ui',
       });
 
-      const colorMain = `${colorSchemaDefault}.800`;
-      const colorContrasted = 'white';
-
       return {
-        bg: colorContrasted,
+        bg: `${colorSchemaDefault}.50`,
         border: '1px solid',
-        borderColor: colorMain,
-        color: colorMain,
+        borderColor: `${colorSchemaDefault}.200`,
+        color: `${colorSchemaDefault}.700`,
         textStyle: 'custom',
         _hover: {
-          bg: colorMain,
-          color: colorContrasted,
-          borderColor: colorContrasted,
+          bg: `${colorSchemaDefault}.100`,
+        },
+        _focus: {
+          boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][200]}`,
+        },
+        _disabled: {
+          color: `${colorSchemaDefault}.500`,
+          cursor: 'not-allowed',
+          _hover: {
+            bg: `${colorSchemaDefault}.50`,
+          },
         },
       };
     },
@@ -81,6 +94,17 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
         _hover: {
           bg: `${colorSchemaDefault}.100`,
         },
+        _focus: {
+          boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][200]}`,
+        },
+        _disabled: {
+          cursor: 'not-allowed',
+          color: `${colorSchemaDefault}.300`,
+          borderColor: `${colorSchemaDefault}.300`,
+          _hover: {
+            bg: `${colorSchemaDefault}.50`,
+          },
+        },
       };
     },
     destructive: ({ colorScheme }) => {
@@ -94,6 +118,17 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
         color: 'white',
         _hover: {
           bg: `${colorSchemaDefault}.600`,
+        },
+        _focus: {
+          boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][200]}`,
+        },
+        _disabled: {
+          cursor: 'not-allowed',
+          bg: `${colorSchemaDefault}.300`,
+          borderColor: `${colorSchemaDefault}.300`,
+          _hover: {
+            bg: `${colorSchemaDefault}.300`,
+          },
         },
       };
     },

@@ -2,18 +2,19 @@ import React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import { Button, ButtonProps } from '../Button';
+import { AddIcon } from '@chakra-ui/icons';
 
 export default {
   title: 'Atoms/Button',
   component: Button,
   args: {
-    children: 'Click me!',
     onClick: (): void => {
       console.log('clicked me!!');
     },
   },
   argTypes: {
     size: {
+      defaultValue: 'md',
       control: {
         type: 'select',
         options: ['sm', 'md', 'lg'],
@@ -25,6 +26,21 @@ export default {
         options: ['primary', 'secondary', 'destructive', 'outline'],
       },
     },
+    isLoading: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isDisabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isFullWidth: {
+      control: {
+        type: 'boolean',
+      },
+    },
     children: {
       control: 'string',
     },
@@ -34,23 +50,24 @@ export default {
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {} as ButtonProps;
+Primary.args = {
+  children: 'Primary Button',
+} as ButtonProps;
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   variant: 'secondary',
+  children: 'Secondary Button',
 } as ButtonProps;
 
 export const OutlinePrimary = Template.bind({});
 OutlinePrimary.args = {
   variant: 'outline',
-  size: 'sm',
-  children: "I'm small",
+  children: 'Outline Button',
 } as ButtonProps;
 
 export const Destructive = Template.bind({});
 Destructive.args = {
   variant: 'destructive',
-  size: 'lg',
-  children: "I'm big",
+  children: 'Destructive Button',
 } as ButtonProps;
