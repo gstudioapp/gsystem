@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ButtonProps } from '@chakra-ui/react';
+import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react';
 
 import { ThemeComponent } from '../../types/theme-component';
 import { getColorSchemeOrDefault } from '../utils/variants';
@@ -8,7 +8,7 @@ import { colors } from '../foundations';
 export type ButtonSizes = 'sm' | 'md' | 'lg' | string;
 export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'outline' | null;
 
-export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = {
+export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonProps> = {
   baseStyle: () => ({
     px: 'sm',
     paddingX: '3',
