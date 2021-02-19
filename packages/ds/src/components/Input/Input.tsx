@@ -1,9 +1,9 @@
+import React, { FC } from 'react';
 import {
   Input as ChakraInput,
   InputProps as ChakraInputProps,
   useStyleConfig,
 } from '@chakra-ui/react';
-import React, { FC } from 'react';
 
 import { InputSizes, InputVariants } from '../../theme';
 
