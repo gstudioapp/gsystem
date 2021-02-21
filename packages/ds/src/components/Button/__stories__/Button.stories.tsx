@@ -60,16 +60,10 @@ Secondary.args = {
   children: 'Secondary Button',
 } as ButtonProps;
 
-export const OutlinePrimary = Template.bind({});
-OutlinePrimary.args = {
-  variant: 'outline',
-  children: 'Outline Button',
-} as ButtonProps;
-
-export const Destructive = Template.bind({});
-Destructive.args = {
-  variant: 'destructive',
-  children: 'Destructive Button',
+export const Danger = Template.bind({});
+Danger.args = {
+  variant: 'danger',
+  children: 'Danger Button',
 } as ButtonProps;
 
 export const WithIcon = Template.bind({});
