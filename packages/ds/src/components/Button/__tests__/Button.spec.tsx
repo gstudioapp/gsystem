@@ -8,7 +8,6 @@ import { Button } from '../Button';
 const initialProps = {
   children: 'Click me',
   onClick: jest.fn(),
-  variant: 'red',
 };
 
 describe('Button', () => {

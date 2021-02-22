@@ -32,6 +32,7 @@ export interface ThemeComponent<
   defaultProps?: {
     size: ComponentTokenSizes;
     variant: ComponentVariants;
+    colorScheme?: ComponentVariants;
   };
 }
 

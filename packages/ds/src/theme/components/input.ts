@@ -73,5 +73,6 @@ export const Input: ThemeComponent<InputSizes, InputVariants, ChakraInputProps> 
   defaultProps: {
     size: 'md',
     variant: 'default',
+    colorScheme: null,
   },
 };
