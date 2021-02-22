@@ -137,6 +137,5 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonPro
   defaultProps: {
     size: 'md',
     variant: 'primary',
-    colorScheme: null,
   },
 };
