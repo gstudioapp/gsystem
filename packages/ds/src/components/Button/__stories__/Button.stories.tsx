@@ -23,7 +23,7 @@ export default {
     variant: {
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'destructive', 'outline'],
+        options: ['primary', 'secondary', 'destructive'],
       },
     },
     isLoading: {
