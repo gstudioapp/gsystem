@@ -1,27 +1,35 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { MenuProps } from '@chakra-ui/react';
-
-import { ThemeComponent } from '../../types/theme-component';
+import { ThemeMultipartComponent } from '../../types/theme-component';
 
 export type MenuSelectSizes = 'sm' | 'md' | 'lg' | string;
+export type MenuSelectParts = 'menu' | 'menu-button' | 'menu-list' | 'menu-item';
 export type MenuSelectVariants = 'default' | null;
-export type MenuSelectParts = '';
 
-export const MenuSelect: ThemeComponent<MenuSelectSizes, MenuSelectVariants, MenuProps> = {
+export const MenuSelect: ThemeMultipartComponent<
+  MenuSelectSizes,
+  MenuSelectVariants,
+  MenuSelectParts
+> = {
+  parts: ['menu', 'menu-button', 'menu-item', 'menu-list'],
+
   baseStyle: () => ({
-    bg: 'ui.100',
-    children: 'aaa',
+    menu: {},
+    'menu-button': {},
+    'menu-list': {},
+    'menu-item': {},
   }),
 
   variants: {
     default: () => ({
-      children: 'aaa',
+      menu: {},
+      'menu-button': {},
+      'menu-list': {},
+      'menu-item': {},
     }),
   },
 
   defaultProps: {
     size: 'md',
     variant: null,
-    colorScheme: null,
   },
 };
