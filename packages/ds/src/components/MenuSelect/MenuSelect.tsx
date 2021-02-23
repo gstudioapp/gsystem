@@ -1,4 +1,6 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+
+import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 import {
   Button as ChakraButton,
   Menu as ChakraMenu,
@@ -10,7 +12,6 @@ import {
 } from '@chakra-ui/react';
 
 import { MenuSelectSizes, MenuSelectVariants } from '../../theme';
-import { TriangleDownIcon, TriangleUpIcon } from '@chakra-ui/icons';
 
 interface MenuSelectOption {
   label: string;
@@ -18,58 +19,78 @@ interface MenuSelectOption {
 }
 
 export interface MenuSelectProps extends ChakraMenuProps {
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  onChange?: (option: MenuSelectOption) => void;
+  options?: Array<MenuSelectOption>;
   placeholder?: string;
   size?: MenuSelectSizes;
+  value?: MenuSelectOption;
   variant?: MenuSelectVariants;
-  options?: Array<MenuSelectOption>;
-  onChange?: (option: MenuSelectOption) => void;
 }
 
 export const MenuSelect: FC<MenuSelectProps> = ({
-  size,
-  variant,
   colorScheme,
-  placeholder,
-  options,
+  isDisabled,
+  isLoading,
   onChange,
+  options,
+  placeholder,
+  size,
+  value,
+  variant,
   ...props
 }) => {
   const [selectedOption, setSelectedOption] = useState<MenuSelectOption>();
   const styles = useMultiStyleConfig('MenuSelect', { size, variant, colorScheme });
 
-  function handleOnChange(option: MenuSelectOption) {
-    setSelectedOption(option);
-    onChange(option);
+  useEffect(() => {
+    if (value) {
+      setSelectedOption(value);
+    }
+  }, []);
+
+  function handleOnChange(selectedOption: MenuSelectOption) {
+    setSelectedOption(selectedOption);
+    onChange(selectedOption);
   }
 
   return (
     <>
-      <ChakraMenu matchWidth data-testid="menu-select" {...props}>
+      <ChakraMenu matchWidth {...props}>
         {({ isOpen }) => (
           <>
             <ChakraMenuButton
-              sx={styles['menu-button']}
+              data-testid="menu-select-button"
               as={ChakraButton}
               fontWeight={selectedOption ? 'bold' : 'normal'}
+              isDisabled={isDisabled}
+              isLoading={isLoading}
+              sx={styles['menu-button']}
               rightIcon={
                 isOpen ? <TriangleUpIcon boxSize="0.5rem" /> : <TriangleDownIcon boxSize="0.5rem" />
               }
             >
               {selectedOption ? selectedOption.label : placeholder}
             </ChakraMenuButton>
-            {options?.length > 0 && (
-              <ChakraMenuList sx={styles['menu-list']}>
-                {options.map((option, idx) => (
+            <ChakraMenuList sx={styles['menu-list']}>
+              {options?.length > 0 ? (
+                options.map((option, idx) => (
                   <ChakraMenuItem
+                    data-testid="menu-select-item"
                     key={idx}
                     sx={styles['menu-item']}
                     onClick={() => handleOnChange(option)}
                   >
                     {option.label}
                   </ChakraMenuItem>
-                ))}
-              </ChakraMenuList>
-            )}
+                ))
+              ) : (
+                <ChakraMenuItem isDisabled data-testid="menu-select-item" sx={styles['menu-item']}>
+                  No options.
+                </ChakraMenuItem>
+              )}
+            </ChakraMenuList>
           </>
         )}
       </ChakraMenu>
