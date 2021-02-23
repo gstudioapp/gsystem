@@ -10,7 +10,8 @@ type MultipartStyleInterpolation<ComponentParts> = Partial<
   Record<ComponentParts & string, SystemStyleObject>
 >;
 
-/** Provides a object model following the normal component style interface inside Chakra */
+/** Provides a object model following the normal component style interface inside Chakra.
+ * Read the documentation for more details: https://chakra-ui.com/docs/theming/component-style#styling-single-part-components */
 export interface ThemeComponent<
   ComponentTokenSizes,
   ComponentVariants,
@@ -36,7 +37,8 @@ export interface ThemeComponent<
   };
 }
 
-/** Provides a object model following the multipart component style interface inside Chakra */
+/** Provides a object model following the multipart component style interface inside Chakra.
+ * Read the documentation for more details: https://chakra-ui.com/docs/theming/component-style#styling-multipart-components */
 export interface ThemeMultipartComponent<ComponentTokenSizes, ComponentVariants, ComponentParts> {
   /** Definition of the component parts */
   parts: Array<ComponentParts>;
@@ -60,5 +62,6 @@ export interface ThemeMultipartComponent<ComponentTokenSizes, ComponentVariants,
   defaultProps?: {
     size: ComponentTokenSizes;
     variant: ComponentVariants;
+    colorScheme: ComponentVariants;
   };
 }
