@@ -19,15 +19,15 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonPro
   sizes: {
     sm: {
       fontSize: 'sm',
-      lineHeight: 'sm',
+      lineHeight: '0.875rem',
     },
     md: {
       fontSize: 'md',
-      lineHeight: 'md',
+      lineHeight: '1rem',
     },
     lg: {
       fontSize: 'lg',
-      lineHeight: 'lg',
+      lineHeight: '1.125rem',
     },
   },
 
@@ -61,7 +61,7 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonPro
 
       return {
         bg: `${colorSchemaDefault}.50`,
-        border: '1px solid',
+        border: 'sm',
         borderColor: `${colorSchemaDefault}.200`,
         color: `${colorSchemaDefault}.700`,
         textStyle: 'custom',
