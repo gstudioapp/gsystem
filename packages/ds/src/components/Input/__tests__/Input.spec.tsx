@@ -2,7 +2,6 @@ import '@testing-library/jest-dom';
 import { fireEvent } from '@testing-library/react';
 
 import { setup } from '../../../test-utils';
-
 import { Input, InputProps } from '../Input';
 
 const initialProps: InputProps = {
