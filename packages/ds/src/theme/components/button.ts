@@ -6,7 +6,7 @@ import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../foundations';
 
 export type ButtonSizes = 'sm' | 'md' | 'lg' | string;
-export type ButtonVariants = 'primary' | 'secondary' | 'destructive' | 'outline' | null;
+export type ButtonVariants = 'primary' | 'secondary' | 'danger' | null;
 
 export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonProps> = {
   baseStyle: () => ({
@@ -80,34 +80,7 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonPro
         },
       };
     },
-    outline: ({ colorScheme }) => {
-      const colorSchemaDefault = getColorSchemeOrDefault({
-        colorScheme,
-        colorSchemeDefault: 'primary',
-      });
-
-      return {
-        bg: `${colorSchemaDefault}.50`,
-        borderColor: `${colorSchemaDefault}.500`,
-        border: 'sm',
-        color: `${colorSchemaDefault}.500`,
-        _hover: {
-          bg: `${colorSchemaDefault}.100`,
-        },
-        _focus: {
-          boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][200]}`,
-        },
-        _disabled: {
-          cursor: 'not-allowed',
-          color: `${colorSchemaDefault}.300`,
-          borderColor: `${colorSchemaDefault}.300`,
-          _hover: {
-            bg: `${colorSchemaDefault}.50`,
-          },
-        },
-      };
-    },
-    destructive: ({ colorScheme }) => {
+    danger: ({ colorScheme }) => {
       const colorSchemaDefault = getColorSchemeOrDefault({
         colorScheme,
         colorSchemeDefault: 'supportA',
