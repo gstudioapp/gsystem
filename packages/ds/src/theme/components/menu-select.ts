@@ -3,7 +3,7 @@ import { ThemeMultipartComponent } from '../../types/theme-component';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../../theme/foundations';
 
-export type MenuSelectSizes = string;
+export type MenuSelectSizes = 'sm' | 'md' | 'lg' | string;
 export type MenuSelectVariants = 'default' | null;
 
 type MenuSelectParts = 'menu-button' | 'menu-list' | 'menu-item';
@@ -18,8 +18,9 @@ export const MenuSelect: ThemeMultipartComponent<
   baseStyle: () => ({
     'menu-button': {
       zIndex: 2,
-      fontSize: 'sm',
-      lineHeight: '0.875rem',
+      height: 'unset',
+      minWidth: '7.5rem',
+      paddingY: '0.5rem',
     },
     'menu-list': {
       pt: '3',
@@ -34,6 +35,41 @@ export const MenuSelect: ThemeMultipartComponent<
     },
   }),
 
+  sizes: {
+    sm: () => ({
+      'menu-button': {
+        fontSize: 'sm',
+        lineHeight: 'sm',
+      },
+      'menu-item': {
+        fontSize: 'sm',
+        lineHeight: 'sm',
+      },
+    }),
+
+    md: () => ({
+      'menu-button': {
+        fontSize: 'md',
+        lineHeight: 'md',
+      },
+      'menu-item': {
+        fontSize: 'md',
+        lineHeight: 'md',
+      },
+    }),
+
+    lg: () => ({
+      'menu-button': {
+        fontSize: 'lg',
+        lineHeight: 'lg',
+      },
+      'menu-item': {
+        fontSize: 'lg',
+        lineHeight: 'lg',
+      },
+    }),
+  },
+
   variants: {
     default: ({ colorScheme }) => {
       const colorSchemaDefault = getColorSchemeOrDefault({
@@ -44,7 +80,6 @@ export const MenuSelect: ThemeMultipartComponent<
       return {
         'menu-button': {
           border: 'sm',
-          height: '2.25rem',
           borderColor: `${colorSchemaDefault}.200`,
           bg: `${colorSchemaDefault}.50`,
           color: `${colorSchemaDefault}.700`,
@@ -53,6 +88,13 @@ export const MenuSelect: ThemeMultipartComponent<
           },
           _focus: {
             boxShadow: `0px 0px 0px 3px ${colors[colorSchemaDefault][100]}`,
+          },
+          _disabled: {
+            color: `${colorSchemaDefault}.500`,
+            cursor: 'not-allowed',
+            _hover: {
+              bg: `${colorSchemaDefault}.50`,
+            },
           },
         },
         'menu-list': {
@@ -73,7 +115,7 @@ export const MenuSelect: ThemeMultipartComponent<
   },
 
   defaultProps: {
-    size: 'md',
+    size: 'sm',
     variant: 'default',
     colorScheme: null,
   },
