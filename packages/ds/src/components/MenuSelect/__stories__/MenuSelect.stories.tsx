@@ -30,7 +30,40 @@ export default {
         type: 'text',
       },
     },
+    size: {
+      defaultValue: 'sm',
+      control: {
+        type: 'select',
+        options: ['sm', 'md', 'lg'],
+      },
+    },
+    isDisabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    isLoading: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 } as Meta;
 
-export const Default: Story<MenuSelectProps> = (args) => <MenuSelect {...args} />;
+const Template: Story<MenuSelectProps> = (args) => <MenuSelect {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {} as MenuSelectProps;
+
+export const WithDefaultValue = Template.bind({});
+WithDefaultValue.args = {
+  value: {
+    label: 'Option 3',
+    value: 'foo',
+  },
+} as MenuSelectProps;
+
+export const WithEmptyStateMessage = Template.bind({});
+WithEmptyStateMessage.args = {
+  options: [],
+} as MenuSelectProps;
