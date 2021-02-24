@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { InputProps as ChakraInputProps } from '@chakra-ui/react';
 
-import { ThemeComponent } from '../../types/theme-component';
+import { ThemeComponent } from '../../types';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../foundations';
 

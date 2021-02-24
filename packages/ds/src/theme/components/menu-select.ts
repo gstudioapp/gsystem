@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ThemeMultipartComponent } from '../../types/theme-component';
+import { ThemeMultipartComponent } from '../../types';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../../theme/foundations';
 

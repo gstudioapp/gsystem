@@ -1,6 +1,6 @@
 import { IconProps as ChakraIconProps } from '@chakra-ui/react';
 
-import { ThemeComponent } from '../../types/theme-component';
+import { ThemeComponent } from '../../types';
 
 export type IconSizes = 'sm' | 'md' | 'lg' | string;
 export type IconVariants = 'default' | null;
