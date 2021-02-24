@@ -10,8 +10,6 @@ export type ButtonVariants = 'primary' | 'secondary' | 'danger' | null;
 
 export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = {
   baseStyle: () => ({
-    px: 'sm',
-    paddingX: '3',
     borderRadius: 'sm',
     fontWeight: 'normal',
   }),

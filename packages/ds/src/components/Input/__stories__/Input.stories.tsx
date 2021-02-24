@@ -8,6 +8,7 @@ export default {
   component: Input,
   argTypes: {
     size: {
+      defaultValue: 'md',
       control: {
         type: 'select',
         options: ['sm', 'md', 'lg'],
