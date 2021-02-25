@@ -3,8 +3,8 @@ import { ThemeMultipartComponent } from '../../types';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../../theme/foundations';
 
-export type MenuSelectSizes = 'sm' | 'md' | 'lg' | string;
-export type MenuSelectVariants = 'default' | null;
+export type MenuSelectSizes = 'sm' | 'md' | 'lg';
+export type MenuSelectVariants = 'default';
 
 type MenuSelectParts = 'menu-button' | 'menu-list' | 'menu-item';
 

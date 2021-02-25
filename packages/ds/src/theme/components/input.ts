@@ -5,8 +5,8 @@ import { ThemeComponent } from '../../types';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../foundations';
 
-export type InputSizes = 'sm' | 'md' | 'lg' | string;
-export type InputVariants = 'default' | null;
+export type InputSizes = 'sm' | 'md' | 'lg';
+export type InputVariants = 'default';
 
 export const Input: ThemeComponent<InputSizes, InputVariants, ChakraInputProps> = {
   baseStyle: () => ({
