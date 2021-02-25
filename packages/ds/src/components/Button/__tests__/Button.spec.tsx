@@ -2,13 +2,11 @@ import '@testing-library/jest-dom';
 import { fireEvent } from '@testing-library/react';
 
 import { setup } from '../../../test-utils';
-
 import { Button } from '../Button';
 
 const initialProps = {
   children: 'Click me',
   onClick: jest.fn(),
-  variant: 'red',
 };
 
 describe('Button', () => {

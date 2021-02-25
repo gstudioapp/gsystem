@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { ButtonProps } from '@chakra-ui/react';
+import { ButtonProps as ChakraButtonProps } from '@chakra-ui/react';
 
-import { ThemeComponent } from '../../types/theme-component';
+import { ThemeComponent } from '../../types';
 import { getColorSchemeOrDefault } from '../utils/variants';
 import { colors } from '../foundations';
 
-export type ButtonSizes = 'sm' | 'md' | 'lg' | string;
-export type ButtonVariants = 'primary' | 'secondary' | 'danger' | null;
+export type ButtonSizes = 'sm' | 'md' | 'lg';
+export type ButtonVariants = 'primary' | 'secondary' | 'danger';
 
-export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = {
+export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonProps> = {
   baseStyle: () => ({
     borderRadius: 'sm',
     fontWeight: 'normal',
@@ -17,15 +17,15 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
   sizes: {
     sm: {
       fontSize: 'sm',
-      lineHeight: 'sm',
+      lineHeight: '0.875rem',
     },
     md: {
       fontSize: 'md',
-      lineHeight: 'md',
+      lineHeight: '1rem',
     },
     lg: {
       fontSize: 'lg',
-      lineHeight: 'lg',
+      lineHeight: '1.125rem',
     },
   },
 
@@ -59,7 +59,7 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ButtonProps> = 
 
       return {
         bg: `${colorSchemaDefault}.50`,
-        border: '1px solid',
+        border: 'sm',
         borderColor: `${colorSchemaDefault}.200`,
         color: `${colorSchemaDefault}.700`,
         textStyle: 'custom',

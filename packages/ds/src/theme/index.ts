@@ -1,3 +1,12 @@
 export { theme as default } from './theme';
 
-export type { ButtonSizes, ButtonVariants, InputSizes, InputVariants } from './components';
+export type {
+  ButtonSizes,
+  ButtonVariants,
+  IconSizes,
+  IconVariants,
+  InputSizes,
+  InputVariants,
+  MenuSelectSizes,
+  MenuSelectVariants,
+} from './components';

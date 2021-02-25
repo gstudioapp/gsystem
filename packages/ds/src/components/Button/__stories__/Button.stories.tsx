@@ -1,8 +1,8 @@
 import React from 'react';
 import { Meta, Story } from '@storybook/react';
+import { InfoIcon } from '@chakra-ui/icons';
 
 import { Button, ButtonProps } from '../Button';
-import { InfoIcon } from '@chakra-ui/icons';
 
 export default {
   title: 'Atoms/Button',
@@ -21,9 +21,10 @@ export default {
       },
     },
     variant: {
+      defaultValue: 'primary',
       control: {
         type: 'select',
-        options: ['primary', 'secondary', 'destructive', 'outline'],
+        options: ['primary', 'secondary', 'destructive'],
       },
     },
     isLoading: {
