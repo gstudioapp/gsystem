@@ -5,7 +5,7 @@ import { InfoIcon } from '@chakra-ui/icons';
 import { Button, ButtonProps } from '../Button';
 
 export default {
-  title: 'Atoms/Button',
+  title: 'Forms/Button',
   component: Button,
   args: {
     onClick: (): void => {
