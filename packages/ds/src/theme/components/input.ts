@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { InputProps } from '@chakra-ui/react';
+import { InputProps as ChakraInputProps } from '@chakra-ui/react';
 
 import { ThemeComponent } from '../../types/theme-component';
 import { getColorSchemeOrDefault } from '../utils/variants';
@@ -8,7 +8,7 @@ import { colors } from '../foundations';
 export type InputSizes = 'sm' | 'md' | 'lg' | string;
 export type InputVariants = 'default' | null;
 
-export const Input: ThemeComponent<InputSizes, InputVariants, InputProps> = {
+export const Input: ThemeComponent<InputSizes, InputVariants, ChakraInputProps> = {
   baseStyle: () => ({
     px: '3',
     outline: 'none',
