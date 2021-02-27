@@ -8,12 +8,21 @@ export interface CardProps extends ChakraBoxProps {
   size?: CardSizes;
 }
 
-export const Card: FC<CardProps> = ({ size, variant, children, ...props }) => {
+export const Card: FC<CardProps> = ({
+  size,
+  variant,
+  children,
+  boxShadow = 'base',
+  borderRadius = 'sm',
+  ...props
+}) => {
   const styles = useStyleConfig('Card', { size, variant });
 
   return (
-    <ChakraBox sx={styles} {...props}>
+    <ChakraBox sx={styles} boxShadow={boxShadow} borderRadius={borderRadius} {...props}>
       {children}
     </ChakraBox>
   );
 };
+
+Card.displayName = 'Card';

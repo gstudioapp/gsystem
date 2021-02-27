@@ -16,5 +16,13 @@ export const Logo: FC<LogoProps> = ({ type = 'normal', ...props }) => {
     minimal: gStudioLogoSymbol,
   };
 
-  return <ChakraImage src={logoTypes[type]} {...props} />;
+  return (
+    <ChakraImage
+      width={type === 'normal' ? '7.5rem' : '2.03rem'}
+      src={logoTypes[type]}
+      {...props}
+    />
+  );
 };
+
+Logo.displayName = 'Logo';
