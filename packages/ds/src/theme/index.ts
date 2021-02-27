@@ -11,4 +11,6 @@ export type {
   InputVariants,
   MenuSelectSizes,
   MenuSelectVariants,
+  TextSizes,
+  TextVariants,
 } from './components';
