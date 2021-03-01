@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/gstudioapp/gsystem/compare/@gsystem/ds@0.1.0...@gsystem/ds@0.1.1) (2021-03-01)
+
+
+### Bug Fixes
+
+* padronizing theme lineHeight ([f7c3f2d](https://github.com/gstudioapp/gsystem/commit/f7c3f2d516cc3b498ce1bf7656aa1e92ada35116))
+
+
+
+
+
 # 0.1.0 (2021-03-01)
 
 
