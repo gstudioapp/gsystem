@@ -21,7 +21,7 @@ git clone git@github.com:gstudioapp/gsystem.git
 
 1. Run dev in the terminal
 
-> Tip: Run each command below in the terminal tab
+> Tip: Run each command below in the terminal tab!
 
 ```bash
 ### Storybook
