@@ -13,15 +13,12 @@ export const Card: ThemeComponent<CardSizes, CardVariants, ChakraBoxProps> = {
 
   sizes: {
     sm: {
-      borderRadius: 'sm',
       padding: 'sm',
     },
     md: {
-      borderRadius: 'md',
       padding: 'md',
     },
     lg: {
-      borderRadius: 'lg',
       padding: 'lg',
     },
   },
