@@ -1,0 +1,8 @@
+name: Unit testing
+description: Run unit testing with coverage
+
+runs:
+  using: "composite"
+  steps:
+    - run: yarn && yarn test:verbose
+      shell: bash
