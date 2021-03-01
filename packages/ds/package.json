@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/ds",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Design system of GstudioApp",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -23,7 +23,6 @@
   "bugs": {
     "url": "https://github.com/gstudioapp/gsystem/issues"
   },
-  "devDependencies": {},
   "scripts": {
     "typecheck": "tsc --project tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck --watch",

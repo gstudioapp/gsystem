@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-beta.0](https://github.com/gstudioapp/gsystem/compare/@gsystem/components@0.0.2-beta.147...@gsystem/components@0.1.0-beta.0) (2021-03-01)
+
+
+### Features
+
+* update readme ([1d6d935](https://github.com/gstudioapp/gsystem/commit/1d6d9353ad3fbf5dceb0767fe713485c43019477))
+
+
+
+
+
 ## 0.0.2-beta.148 (2020-09-05)
 
 **Note:** Version bump only for package @gsystem/components

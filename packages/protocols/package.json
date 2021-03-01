@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/protocols",
-  "version": "0.0.2-beta.148",
+  "version": "0.1.0-beta.0",
   "description": "Protocols of gsystem/components",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -33,6 +33,5 @@
     "typecheck": "tsc --project ./tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck -- --watch"
   },
-  "devDependencies": {},
   "gitHead": "899c1f8d767b4c68a9ae55b8df902eaab3b24ea7"
 }

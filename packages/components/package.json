@@ -1,6 +1,6 @@
 {
   "name": "@gsystem/components",
-  "version": "0.0.2-beta.148",
+  "version": "0.1.0-beta.0",
   "description": "React components",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -31,10 +31,9 @@
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
-    "@gsystem/protocols": "0.0.2-beta.148",
+    "@gsystem/protocols": "0.1.0-beta.0",
     "@storybook/theming": "^6.1.15"
   },
-  "devDependencies": {},
   "scripts": {
     "typecheck": "tsc --project tsconfig.app.json --noEmit",
     "typecheck:dev": "yarn typecheck -- --watch",
