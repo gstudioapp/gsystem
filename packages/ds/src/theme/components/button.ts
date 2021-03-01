@@ -17,15 +17,15 @@ export const Button: ThemeComponent<ButtonSizes, ButtonVariants, ChakraButtonPro
   sizes: {
     sm: {
       fontSize: 'sm',
-      lineHeight: '0.875rem',
+      lineHeight: 'sm',
     },
     md: {
       fontSize: 'md',
-      lineHeight: '1rem',
+      lineHeight: 'md',
     },
     lg: {
       fontSize: 'lg',
-      lineHeight: '1.125rem',
+      lineHeight: 'lg',
     },
   },
 
