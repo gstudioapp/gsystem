@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import { Input, InputProps } from '../Input';
 
 export default {
-  title: 'Atoms/Input',
+  title: 'Forms/Input',
   component: Input,
   argTypes: {
     size: {

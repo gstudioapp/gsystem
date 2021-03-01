@@ -1,11 +1,13 @@
+import babel from 'rollup-plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
+import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
 import typescript from 'rollup-plugin-typescript2';
-import babel from 'rollup-plugin-babel';
 
 const formats = ['cjs', 'esm'];
 
 const plugins = [
+  image(),
   json(),
   commonjs(),
   typescript({

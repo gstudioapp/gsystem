@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import { MenuSelect, MenuSelectProps } from '../MenuSelect';
 
 export default {
-  title: 'Atoms/MenuSelect',
+  title: 'Overlay/MenuSelect',
   component: MenuSelect,
   args: {
     options: [
