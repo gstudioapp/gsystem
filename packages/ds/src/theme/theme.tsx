@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 
-import { Button, Card, Icon, Input, MenuSelect, Text } from './components';
+import { Button, Card, Heading, Icon, Input, MenuSelect, Text } from './components';
 import { layerStyles, textStyles } from './styles';
 import {
   borders,
@@ -33,6 +33,7 @@ export const theme = extendTheme({
   components: {
     Button,
     Card,
+    Heading,
     Icon,
     Input,
     MenuSelect,

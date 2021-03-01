@@ -5,6 +5,8 @@ export type {
   ButtonVariants,
   CardSizes,
   CardVariants,
+  HeadingSizes,
+  HeadingVariants,
   IconSizes,
   IconVariants,
   InputSizes,
