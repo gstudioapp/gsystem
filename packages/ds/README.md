@@ -77,6 +77,7 @@ lerna exec yarn compile:dev --scope=@gsystem/ds
     └── theme
 ```
 
-## Actions
+## Github Actions
 
--
+- Workflows
+  - [ds-pull-request.yml](.github/workflows/ds-pull-request.yml)
