@@ -1,5 +1,5 @@
 [![Storybook](https://cdn.jsdelivr.net/gh/storybookjs/brand@master/badge/badge-storybook.svg)](https://objective-panini-639144.netlify.app)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4f72c65f-47f7-4f73-8a1e-1ea9afdd17cc/deploy-status)](https://app.netlify.com/sites/objective-panini-639144/deploys) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/15771a8c22dd44b6a16283e09cdb977f)](https://app.codacy.com/gh/gstudioapp/gsystem?utm_source=github.com&utm_medium=referral&utm_content=gstudioapp/gsystem&utm_campaign=Badge_Grade_Dashboard) [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/5a71ae4db894401399637dd07f254ca6)](https://www.codacy.com/gh/gstudioapp/gsystem?utm_source=github.com&utm_medium=referral&utm_content=gstudioapp/gsystem&utm_campaign=Badge_Coverage)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4f72c65f-47f7-4f73-8a1e-1ea9afdd17cc/deploy-status)](https://app.netlify.com/sites/objective-panini-639144/deploys)
 
 # @gsystem/ds
 
@@ -21,7 +21,7 @@ git clone git@github.com:gstudioapp/gsystem.git
 
 1. Run dev in the terminal
 
-> Tip: Run each command below in the terminal tab
+> Tip: Run each command below in the terminal tab!
 
 ```bash
 ### Storybook
@@ -44,3 +44,40 @@ lerna exec yarn test:watch --scope=@gsystem/ds
 ### Compile
 lerna exec yarn compile:dev --scope=@gsystem/ds
 ```
+
+## Scaffolding
+
+```bash
+./packages/ds/src
+├── assets
+│   └── images
+├── components
+│   ├── Button
+│   ├── Card
+│   ├── Heading
+│   ├── Icon
+│   ├── Input
+│   ├── Logo
+│   ├── MenuSelect
+│   ├── Text
+│   ├── ThemeProvider
+│   └── index.ts
+├── index.d.ts
+├── test-utils.tsx
+├── theme
+│   ├── components
+│   ├── foundations
+│   ├── index.ts
+│   ├── styles
+│   ├── theme.tsx
+│   └── utils
+└── types
+    ├── components
+    ├── index.ts
+    └── theme
+```
+
+## Github Actions
+
+- Workflows
+  - [ds-pull-request.yml](.github/workflows/ds-pull-request.yml)

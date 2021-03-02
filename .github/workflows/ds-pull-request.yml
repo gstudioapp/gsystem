@@ -3,8 +3,8 @@ name: '[Package/DS] Pull request'
 on:
   pull_request:
     types: [opened, reopened, synchronize]
-#    paths:
-#      - 'packages/ds/**'
+    paths:
+      - 'packages/ds/**'
 
 jobs:
   code-lint:
@@ -16,9 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -37,9 +34,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -58,9 +52,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -80,9 +71,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -94,3 +82,38 @@ jobs:
 
       - name: Build Storybook
         run: yarn ds:storybook:build
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: storybook
+          path: ${{ github.workspace }}/packages/ds/storybook-static
+
+
+  netlify-deploy:
+    runs-on: ubuntu-latest
+    needs: [ build ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Download storybook
+        uses: actions/download-artifact@v2
+        with:
+          name: storybook
+          path: ${{ github.workspace }}/packages/ds/storybook-static
+
+      - name: Netlify Actions
+        uses: nwtgck/actions-netlify@v1.1.11
+        with:
+          publish-dir: ${{ github.workspace }}/packages/ds/storybook-static
+          production-branch: master
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Deploy from GitHub Actions"
+          enable-pull-request-comment: true
+          enable-commit-comment: true
+          overwrites-pull-request-comment: true
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 1
