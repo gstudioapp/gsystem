@@ -1,66 +1,15 @@
 name: '[Package/DS] Pull request'
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize]
+  workflow_run:
     paths:
       - 'packages/ds/**'
+    workflows: ['[Packages/**] Pull request']
+    types:
+      - completed
+      - requested
 
 jobs:
-  code-lint:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 14.x ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Code Lint
-        uses: ./.github/actions/code-lint
-
-  type-checking:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 14.x ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Typecheck
-        uses: ./.github/actions/type-checking
-
-  unit-with-coverage:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [ 14.x ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@master
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Unit testing
-        uses: ./.github/actions/unit-with-coverage
-
   build:
     runs-on: ubuntu-latest
     needs: [ code-lint, type-checking, unit-with-coverage ]

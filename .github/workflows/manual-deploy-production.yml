@@ -1,15 +1,10 @@
-name: '[Package/DS] Merge to main branch'
+name: Manual deploy
 
 on:
-  pull_request:
-    branches: ['master']
-    types: [closed]
-    paths:
-      - 'packages/ds/**'
+  workflow_dispatch
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -23,7 +18,15 @@ jobs:
           fetch-depth: 0
           ref: master
 
-      - name: Configure CI Git User
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install environment
+        run: yarn install
+
+      - name: Login to github
         env:
           CI: true
           GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
@@ -34,18 +37,7 @@ jobs:
           git checkout master
           git config --global user.name $GITHUB_USER
           git config --global user.email $GITHUB_EMAIL
-          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKEN@github.com/gstudioapp/$GITHUB_REPOSITORY.git
-
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node-version }}
-        env:
-          CI: true
-          NODE_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
-
-      - name: Install Dependencies
-        run: yarn install
+          git remote set-url origin https://$GITHUB_USER:$GITHUB_AUTH_TOKENgithub.com/gstudioapp/$GITHUB_REPOSITORY.git
 
       - name: Authenticate with Registry
         run: |
@@ -65,12 +57,31 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Deploy
+        env:
+          CI: true
+        run: |
+          yarn release -- from-package
+
       - name: Get Previous tag
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@master
 
-      - name: Set Current version
+      - name: Get next minor version
         id: semvers
         uses: WyriHaximus/github-action-next-semvers@master
         with:
           version: ${{ steps.previoustag.outputs.tag }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
+        with:
+          tag_name: ${{ steps.semvers.outputs.patch }}
+          # release_name: ${{ env.APP_NAME }} ${{ github.ref }}
+          release_name: ${{ steps.semvers.outputs.patch }} ${{ github.event.pull_request.title }}
+          body: |
+            ${{ github.event.pull_request.body }}
+          draft: false
+          prerelease: false
