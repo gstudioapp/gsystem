@@ -1,7 +1,7 @@
-name: Manual deploy
-
 on:
   workflow_dispatch
+
+name: Manual deploy
 
 jobs:
   build:

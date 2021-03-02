@@ -1,5 +1,3 @@
-name: '[Package/DS] Pull request'
-
 on:
   workflow_run:
     paths:
@@ -8,6 +6,8 @@ on:
     types:
       - completed
       - requested
+
+name: '[Package/DS] Pull request'
 
 jobs:
   build:
