@@ -16,9 +16,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -37,9 +34,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -58,9 +52,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master
@@ -80,9 +71,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-          ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@master

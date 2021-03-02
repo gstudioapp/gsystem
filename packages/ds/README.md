@@ -44,3 +44,35 @@ lerna exec yarn test:watch --scope=@gsystem/ds
 ### Compile
 lerna exec yarn compile:dev --scope=@gsystem/ds
 ```
+
+## Scaffolding
+
+```bash
+./packages/ds/src
+├── assets
+│   └── images
+├── components
+│   ├── Button
+│   ├── Card
+│   ├── Heading
+│   ├── Icon
+│   ├── Input
+│   ├── Logo
+│   ├── MenuSelect
+│   ├── Text
+│   ├── ThemeProvider
+│   └── index.ts
+├── index.d.ts
+├── test-utils.tsx
+├── theme
+│   ├── components
+│   ├── foundations
+│   ├── index.ts
+│   ├── styles
+│   ├── theme.tsx
+│   └── utils
+└── types
+    ├── components
+    ├── index.ts
+    └── theme
+```
