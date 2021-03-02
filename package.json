@@ -80,6 +80,7 @@
     "typescript": "^4.0.2"
   },
   "scripts": {
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "lint": "lerna run lint --parallel",
     "lint:fix": "lerna run lint:fix --parallel",

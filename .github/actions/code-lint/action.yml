@@ -4,5 +4,5 @@ description: Run code lint
 runs:
   using: "composite"
   steps:
-    - run: yarn && yarn lint:fix
+    - run: yarn && yarn bootstrap && yarn lint:fix
       shell: bash
