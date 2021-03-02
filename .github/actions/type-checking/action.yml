@@ -4,5 +4,5 @@ description: Run type checking
 runs:
   using: "composite"
   steps:
-    - run: yarn && yarn typecheck
+    - run: yarn && yarn bootstrap && yarn typecheck
       shell: bash
