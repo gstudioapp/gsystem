@@ -16,3 +16,5 @@ export type {
   TextSizes,
   TextVariants,
 } from './components';
+
+console.log('init');
