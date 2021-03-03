@@ -1,12 +1,8 @@
 name: Merge on master
 
 on:
-  pull_request:
-    branches:
-      - master
-    types: [closed]
-    paths:
-      - 'packages/**'
+  push:
+    branches: [master]
 
 jobs:
   build:
@@ -18,24 +14,20 @@ jobs:
 
     steps:
       - name: Checkout
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         uses: actions/checkout@master
         with:
           fetch-depth: 0
           ref: master
 
       - name: Use Node.js ${{ matrix.node-version }}
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Install environment
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        run: yarn install
+        run: yarn
 
       - name: Login to github
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
         env:
           CI: true
           GITHUB_AUTH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
@@ -58,6 +50,9 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+      - name: Build packages
+        run: yarn build
+
       - name: Publish Package
         run: yarn release -- from-package
         env:
@@ -65,13 +60,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Deploy
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[SKIP CI]') == false
-        env:
-          CI: true
-        run: |
-          yarn release -- from-package
 
       - name: Get Previous tag
         id: previoustag

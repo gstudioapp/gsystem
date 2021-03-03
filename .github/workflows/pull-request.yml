@@ -1,28 +1,59 @@
-name: '[Project] Pull request'
+name: '[Packages/**] Pull request'
 
 on:
   pull_request:
-    types: [opened, reopened, synchronize]
 
 jobs:
-  build:
-
+  code-lint:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [ 14.x ]
 
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@master
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node-version }}
 
-#      - name: Install environment
-#        run: yarn install
-#
-#      - name: Tests coverage
-#        run: yarn test:verbose
+      - name: Code Lint
+        uses: ./.github/actions/code-lint
+
+  type-checking:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Typecheck
+        uses: ./.github/actions/type-checking
+
+  unit-with-coverage:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 14.x ]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Unit testing
+        uses: ./.github/actions/unit-with-coverage
