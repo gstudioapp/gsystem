@@ -1,7 +1,7 @@
+name: Manual deploy
+
 on:
   workflow_dispatch
-
-name: Manual deploy
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - name: Install environment
-        run: yarn install
+        run: yarn
 
       - name: Login to github
         env:
@@ -48,6 +48,9 @@ jobs:
           npm whoami
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build packages
+        run: yarn build
 
       - name: Publish Package
         run: yarn release -- from-package
