@@ -60,12 +60,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Deploy
-        env:
-          CI: true
-        run: |
-          yarn release -- from-package
-
       - name: Get Previous tag
         id: previoustag
         uses: WyriHaximus/github-action-get-previous-tag@master
