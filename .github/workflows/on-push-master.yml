@@ -50,36 +50,13 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Build packages
-        run: yarn build
+      - name: Build DS Package
+        run: yarn ds:compile
 
       - name: Publish Package
-        run: yarn release -- from-package
+        run: yarn release
         env:
           CI: true
           GH_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - name: Get Previous tag
-        id: previoustag
-        uses: WyriHaximus/github-action-get-previous-tag@master
-
-      - name: Get next minor version
-        id: semvers
-        uses: WyriHaximus/github-action-next-semvers@master
-        with:
-          version: ${{ steps.previoustag.outputs.tag }}
-
-      - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GSYSTEM_AUTH_TOKEN }}
-        with:
-          tag_name: ${{ steps.semvers.outputs.patch }}
-          # release_name: ${{ env.APP_NAME }} ${{ github.ref }}
-          release_name: ${{ steps.semvers.outputs.patch }} ${{ github.event.pull_request.title }}
-          body: |
-            ${{ github.event.pull_request.body }}
-          draft: false
-          prerelease: false

@@ -28,7 +28,16 @@ export default [
   {
     input: 'src/components/index.ts',
     plugins,
-    external: ['@chakra-ui/react', '@emotion/core', '@emotion/styled', 'framer-motion', 'react'],
+    external: [
+      '@chakra-ui/react',
+      '@chakra-ui/icons',
+      '@chakra-ui/theme-tools',
+      '@emotion/core',
+      '@emotion/styled',
+      'framer-motion',
+      'react',
+      'lodash',
+    ],
     output: formats.map((format) => ({
       file: `dist/index.${format}.js`,
       format,
