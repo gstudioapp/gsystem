@@ -34,6 +34,7 @@ export default [
       '@chakra-ui/theme-tools',
       '@emotion/core',
       '@emotion/styled',
+      '@emotion/memoize',
       'framer-motion',
       'react',
       'lodash',
